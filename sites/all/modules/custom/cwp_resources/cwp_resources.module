@@ -1,0 +1,40 @@
+<?php
+/**
+ * @file
+ * Code for the CWP: Resources feature.
+ */
+
+include_once 'cwp_resources.features.inc';
+
+/**
+ * Implements hook_entity_info_alter().
+ */
+function cwp_resources_entity_info_alter(&$entity_info) {
+  // Override taxonomy term callback with a custom callback.
+  $entity_info['taxonomy_term']['uri callback'] = 'cwp_resources_term_uri';
+}
+
+/**
+ * Returns the link path for taxonomy terms.
+ */
+function cwp_resources_term_uri($term) {
+  // Go to the search api view page at /resources.
+  switch ($term->vocabulary_machine_name) {
+    case 'category':
+      return array(
+        'path' => 'resources/',
+          'options' => array(
+            'query' => array('f[0]' => 'field_category:' . $term->tid)
+          )
+        );
+    case 'tags':
+      return array(
+        'path' => 'resources/',
+          'options' => array(
+            'query' => array('f[0]' => 'field_resource_tags:' . $term->tid)
+          )
+        );
+    default:
+      return array('path' => 'taxonomy/term/' . $term->tid);
+  }
+}
