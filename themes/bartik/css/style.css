@@ -1648,10 +1648,3 @@ div.admin-panel .description {
 #footer-wrapper .poll .bar .foreground {
   background-color: #ddd;
 }
-.views-row-even {
-  background-color: #fafafa;
-}
-.views-row {
-  margin: 10px 0;
-  padding: 5px 0 10px 10px;
-}
