@@ -3,8 +3,30 @@ body
   margin: 0
   /* Setting up font size, leading and font family
     http://www.markboulton.co.uk/journal/comments/five-simple-steps-to-better-typography
-  font: 13px / 1.5em "Helvetica Neue", helvetica, Arial, sans-serif
-  letter-spacing: 0.03em
+  font: 12px / 1.5em Arial, helvetica, sans-serif
+  background: url('../images/background.sub.jpg') repeat-x scroll center top transparent
+  color: #5D5D5D
+  
+/* Regions
+#main
+  margin-top: 60px
+#content
+  padding-left: 15px
+#header
+  position: absolute
+#closing
+  border-top: 9px solid #0F3F67
+  color: #5D5D5D
+  font-size: 11px
+  line-height: 13px
+  padding-bottom: 50px
+  padding-top: 10px
+  text-align: center
+  width: 100%
+
+  a
+    color: #EF812A
+    text-decoration: underline
 
 /* Links
 a
@@ -153,12 +175,6 @@ div.status
   background: #ccff88
   border-color: #bbee77
 
-/* Region Colors. delete when starting a new theme.
-#header, #footer,
-#sidebar-first,
-#sidebar-second,
-#navigation
-  background: rgba(#aaa, 0.2)
 
 // Import custom styles.
 @import _custom.sass

@@ -3,34 +3,33 @@
   <!-- ______________________ HEADER _______________________ -->
 
   <header id="header">
+  
+    <div id="navtop">
+      <div id="menu-top">
+        <?php print drupal_render(menu_tree('menu-top-menu')); ?>
+      </div>
+      <div id="donatenow">
+        <a title="Donate Now" href="http://www.canadahelps.org/CharityProfilePage.aspx?charityID=s41272" alt="Donate"></a>
+      </div>
+      <div id="search">
+      </div>
+    </div>
 
     <?php if ($logo): ?>
+    <div id="branding">
       <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
         <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>"/>
       </a>
+    </div>
     <?php endif; ?>
 
-    <?php if ($site_name || $site_slogan): ?>
-      <hgroup id="name-and-slogan">
-
-        <?php if ($site_name): ?>
-          <?php if ($title): ?>
-            <div id="site-name">
-              <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><?php print $site_name; ?></a>
-            </div>
-          <?php else: /* Use h1 when the content title is empty */ ?>
-            <h1 id="site-name">
-              <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><?php print $site_name; ?></a>
-            </h1>
-          <?php endif; ?>
-        <?php endif; ?>
-
-        <?php if ($site_slogan): ?>
-          <div id="site-slogan"><?php print $site_slogan; ?></div>
-        <?php endif; ?>
-
-      </hgroup>
-    <?php endif; ?>
+    <div id="navbarsub">
+      <nav id="navigation" class="menu">
+        <?php print theme('nice_menus_main_menu', array('direction' => 'down', 'depth' => '-1')); ?>
+      </nav> <!-- /navigation -->
+      <div id="addthissub"></div>
+      <div id="sizer"></div>
+    </div>
 
     <?php if ($page['header']): ?>
       <div id="header-region">
@@ -39,14 +38,6 @@
     <?php endif; ?>
 
   </header> <!-- /header -->
-
-  <?php if ($main_menu || $secondary_menu): ?>
-    <nav id="navigation" class="menu <?php if (!empty($main_menu)) {print "with-primary";}
-      if (!empty($secondary_menu)) {print " with-secondary";} ?>">
-      <?php print theme('links', array('links' => $main_menu, 'attributes' => array('id' => 'primary', 'class' => array('links', 'clearfix', 'main-menu')))); ?>
-      <?php print theme('links', array('links' => $secondary_menu, 'attributes' => array('id' => 'secondary', 'class' => array('links', 'clearfix', 'sub-menu')))); ?>
-    </nav> <!-- /navigation -->
-  <?php endif; ?>
 
   <!-- ______________________ MAIN _______________________ -->
 
@@ -115,3 +106,20 @@
   <?php endif; ?>
 
 </div> <!-- /page -->
+
+<div id="closing">
+
+  <div id="facebook">
+    <strong>Follow Us: </strong>
+    <a target="_blank" href="http://twitter.com/CWP_CSP">Twitter</a>
+    <a target="_blank" href="http://www.facebook.com/pages/Canada-Without-Poverty/106633876058589">Facebook</a>
+  </div>
+
+  <div id="site-info">Copyright © <?php print date('Y'); ?> Canada Without Poverty -
+    <a rel="home" title="Canada Without Poverty" href="http://www.cwp-csp.ca/">Home</a>
+    - <a title="Contact Us" href="http://www.cwp-csp.ca/NEW_mainBlog/?page_id=12">Contact Us</a>
+    <br />
+    Charitable Number: #130916638RR001
+  </div>
+
+</div> <!-- /closing -->
