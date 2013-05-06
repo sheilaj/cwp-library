@@ -14,9 +14,6 @@ body {
 #content {
   padding-left: 15px; }
 
-#header {
-  position: absolute; }
-
 #closing {
   border-top: 9px solid #0f3f67;
   color: #5d5d5d;
@@ -293,9 +290,10 @@ div.block-facetapi {
   border-radius: 5px;
   padding: 10px 5px;
   margin: 10px 0; }
-  div.block-facetapi h2 {
-    font-size: 15px;
-    font-weight: bold; }
+
+#sidebar-first h2 {
+  font-size: 15px;
+  font-weight: bold; }
 
 ul.facetapi-facetapi-links {
   list-style: none outside none; }
