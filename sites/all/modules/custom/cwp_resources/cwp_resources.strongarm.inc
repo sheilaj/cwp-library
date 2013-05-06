@@ -90,7 +90,7 @@ function cwp_resources_strongarm() {
           'weight' => '2',
         ),
         'path' => array(
-          'weight' => '9',
+          'weight' => '11',
         ),
       ),
       'display' => array(),

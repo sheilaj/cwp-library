@@ -75,11 +75,13 @@ function cwp_resources_views_default_views() {
   $handler->display->display_options['arguments']['tid']['default_argument_options']['term_page'] = FALSE;
   $handler->display->display_options['arguments']['tid']['default_argument_options']['node'] = TRUE;
   $handler->display->display_options['arguments']['tid']['default_argument_options']['anyall'] = '+';
+  $handler->display->display_options['arguments']['tid']['default_argument_options']['limit'] = TRUE;
+  $handler->display->display_options['arguments']['tid']['default_argument_options']['vocabularies'] = array(
+    'tags' => 'tags',
+  );
   $handler->display->display_options['arguments']['tid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['tid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['tid']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['arguments']['tid']['break_phrase'] = TRUE;
-  $handler->display->display_options['arguments']['tid']['reduce_duplicates'] = TRUE;
   /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
@@ -141,6 +143,7 @@ function cwp_resources_views_default_views() {
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_wrapper_type'] = 'h3';
   $handler->display->display_options['fields']['title']['link_to_entity'] = 1;
   /* Field: Indexed Node: Publication date */
   $handler->display->display_options['fields']['field_publication_date']['id'] = 'field_publication_date';
@@ -171,7 +174,7 @@ function cwp_resources_views_default_views() {
   $handler->display->display_options['fields']['field_resource_link']['label'] = '';
   $handler->display->display_options['fields']['field_resource_link']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_resource_link']['click_sort_column'] = 'url';
-  $handler->display->display_options['fields']['field_resource_link']['type'] = 'link_short';
+  $handler->display->display_options['fields']['field_resource_link']['type'] = 'link_label';
   /* Field: Indexed Node: File */
   $handler->display->display_options['fields']['field_file']['id'] = 'field_file';
   $handler->display->display_options['fields']['field_file']['table'] = 'search_api_index_database_node_index';
@@ -184,6 +187,7 @@ function cwp_resources_views_default_views() {
   $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
   $handler->display->display_options['fields']['view_node']['label'] = '';
+  $handler->display->display_options['fields']['view_node']['exclude'] = TRUE;
   $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['view_node']['text'] = 'Read more';
   /* Field: Indexed Node: Category */
@@ -193,20 +197,14 @@ function cwp_resources_views_default_views() {
   $handler->display->display_options['fields']['field_category']['label'] = '';
   $handler->display->display_options['fields']['field_category']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_category']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_category']['list']['mode'] = 'list';
-  $handler->display->display_options['fields']['field_category']['list']['separator'] = '';
   $handler->display->display_options['fields']['field_category']['link_to_entity'] = 1;
   $handler->display->display_options['fields']['field_category']['view_mode'] = 'full';
   /* Field: Indexed Node: Tags */
   $handler->display->display_options['fields']['field_resource_tags']['id'] = 'field_resource_tags';
   $handler->display->display_options['fields']['field_resource_tags']['table'] = 'search_api_index_database_node_index';
   $handler->display->display_options['fields']['field_resource_tags']['field'] = 'field_resource_tags';
-  $handler->display->display_options['fields']['field_resource_tags']['label'] = '';
   $handler->display->display_options['fields']['field_resource_tags']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_resource_tags']['alter']['text'] = '[field_category] [field_resource_tags]';
-  $handler->display->display_options['fields']['field_resource_tags']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_resource_tags']['list']['mode'] = 'list';
-  $handler->display->display_options['fields']['field_resource_tags']['list']['separator'] = ' ';
   $handler->display->display_options['fields']['field_resource_tags']['link_to_entity'] = 1;
   $handler->display->display_options['fields']['field_resource_tags']['view_mode'] = 'full';
   /* Sort criterion: Indexed Node: Publication date */
@@ -214,6 +212,11 @@ function cwp_resources_views_default_views() {
   $handler->display->display_options['sorts']['field_publication_date']['table'] = 'search_api_index_database_node_index';
   $handler->display->display_options['sorts']['field_publication_date']['field'] = 'field_publication_date';
   $handler->display->display_options['sorts']['field_publication_date']['order'] = 'DESC';
+  /* Sort criterion: Search: Relevance */
+  $handler->display->display_options['sorts']['search_api_relevance']['id'] = 'search_api_relevance';
+  $handler->display->display_options['sorts']['search_api_relevance']['table'] = 'search_api_index_database_node_index';
+  $handler->display->display_options['sorts']['search_api_relevance']['field'] = 'search_api_relevance';
+  $handler->display->display_options['sorts']['search_api_relevance']['order'] = 'DESC';
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');

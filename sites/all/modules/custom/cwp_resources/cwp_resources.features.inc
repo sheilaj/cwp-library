@@ -60,8 +60,10 @@ function cwp_resources_default_search_api_index() {
         "field_author" : { "type" : "string" },
         "field_resource_tags" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_publication_date" : { "type" : "date" },
-        "field_category" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
-        "field_summary" : { "type" : "text" },
+        "field_category" : { "type" : "integer", "entity_type" : "taxonomy_term" },
+        "field_summary" : { "type" : "text", "boost" : "2.0" },
+        "field_publisher" : { "type" : "string" },
+        "field_province_territory" : { "type" : "string" },
         "search_api_language" : { "type" : "string" }
       },
       "data_alter_callbacks" : {
@@ -187,12 +189,22 @@ function cwp_resources_default_search_api_server() {
           },
           "field_category" : {
             "table" : "search_api_db_database_node_index_field_category",
-            "type" : "list\\u003Cinteger\\u003E",
+            "type" : "integer",
             "boost" : "1.0"
           },
           "field_summary" : {
             "table" : "search_api_db_database_node_index_field_summary",
             "type" : "text",
+            "boost" : "2.0"
+          },
+          "field_province_territory" : {
+            "table" : "search_api_db_database_node_index_field_province_territory",
+            "type" : "string",
+            "boost" : "1.0"
+          },
+          "field_publisher" : {
+            "table" : "search_api_db_database_node_index_field_publisher",
+            "type" : "string",
             "boost" : "1.0"
           }
         }
