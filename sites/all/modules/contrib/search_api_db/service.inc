@@ -77,6 +77,10 @@ class SearchApiDbService extends SearchApiAbstractService {
   }
 
   public function preDelete() {
+    // Only react on real deletes, not on reverts.
+    if ($this->server->hasStatus(ENTITY_IN_CODE)) {
+      return;
+    }
     if (empty($this->options['indexes'])) {
       return;
     }
@@ -192,6 +196,24 @@ class SearchApiDbService extends SearchApiAbstractService {
 
     $set = $this->setDb();
     db_create_table($name, $table);
+
+    //Some DBMSs will need a character encoding and collation set.
+    global $databases;
+    list($key, $target) = explode(':', $this->options['database'], 2);
+    $db_driver = $databases[$key][$target]['driver'];
+
+    switch ($db_driver) {
+      case 'mysql':
+        db_query("ALTER TABLE {{$name}} CONVERT TO CHARACTER SET 'utf8' COLLATE 'utf8_bin'")->execute();
+        break;
+      // @todo Add fixes for other DBMSs.
+      case 'oracle':
+      case 'pgsql':
+      case 'sqlite':
+      case 'sqlsrv':
+        break;
+    }
+
     if ($set) {
       $this->resetDb();
     }
@@ -326,14 +348,33 @@ class SearchApiDbService extends SearchApiAbstractService {
 
   protected function indexItem(SearchApiIndex $index, $id, array $item) {
     $fields = $this->options['indexes'][$index->machine_name];
+    $fields_updated = FALSE;
     $txn = db_transaction('search_api_indexing', $this->query_options);
     try {
       foreach ($item as $name => $field) {
+        // Sometimes index changes are not triggering the update hooks
+        // correctly. Therefore, to avoid DB errors, we re-check the tables
+        // here before indexing.
+        if (empty($fields[$name]['table']) && !$fields_updated) {
+          unset($this->options['indexes'][$index->machine_name][$name]);
+          $this->fieldsUpdated($index);
+          $fields_updated = TRUE;
+          $fields = $this->options['indexes'][$index->machine_name];
+        }
+        if (empty($fields[$name]['table'])) {
+          watchdog('search_api_db', "Unknown field !field: please check (and re-save) the index's fields settings.",
+              array('!field' => $name), WATCHDOG_WARNING);
+          continue;
+        }
         $table = $fields[$name]['table'];
         $boost = $fields[$name]['boost'];
         db_delete($table, $this->query_options)
             ->condition('item_id', $id)
             ->execute();
+        // Don't index null values
+        if($field['value'] === NULL) {
+          continue;
+        }
         $type = $field['type'];
         $value = $this->convert($field['value'], $type, $field['original_type'], $index);
 
@@ -401,7 +442,7 @@ class SearchApiDbService extends SearchApiAbstractService {
             $insert->execute();
           }
         }
-        else {
+        elseif (isset($value)) {
           db_insert($table, $this->query_options)
             ->fields(array(
               'item_id' => $id,
@@ -426,13 +467,19 @@ class SearchApiDbService extends SearchApiAbstractService {
       if (is_array($value)) {
         foreach ($value as $v) {
           $v = $this->convert($v, $type, $original_type, $index);
-          $ret = array_merge($ret, is_array($v) ? $v : array($v));
+
+          // Don't add NULL values to the return array. Also, adding an empty
+          // array is, of course, a waste of time.
+          if (isset($v) && $v !== array()) {
+            $ret = array_merge($ret, is_array($v) ? $v : array($v));
+          }
         }
       }
       return $ret;
     }
     if (!isset($value)) {
-      return NULL;
+      // For text fields, we have to return an array even if the value is NULL.
+      return search_api_is_text_type($type, array('text', 'tokens')) ? array() : NULL;
     }
     switch ($type) {
       case 'text':
@@ -1074,8 +1121,6 @@ class SearchApiDbService extends SearchApiAbstractService {
     }
     $expressions = &$db_query->getExpressions();
     $expressions = array();
-    $group_by = &$db_query->getGroupBy();
-    $group_by = array();
     $db_query->distinct();
     if (!$db_query->preExecute()) {
       return array();
@@ -1107,7 +1152,8 @@ class SearchApiDbService extends SearchApiAbstractService {
       if ($facet['min_count'] > 1) {
         $select->having('num >= :count', array(':count' => $facet['min_count']));
       }
-      if (((bool) $facet['missing']) === search_api_is_list_type($field['type'])) {
+      $list_or_text = search_api_is_list_type($field['type']) || search_api_is_text_type($field['type']);
+      if (((bool) $facet['missing']) === $list_or_text) {
         // For multi-valued fields, the "missing" facet is defined by the table
         // not having any entries for those items. We therefore need to execute
         // an additional query, counting the items which do not have any entries
