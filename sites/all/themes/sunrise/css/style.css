@@ -285,28 +285,31 @@ div.status {
   margin-top: 29px; }
 
 /* Resources page */
-div.block-facetapi {
+div.block-facetapi, div#block-views--exp-cwp_resources-page {
   background: #efefef;
   border-radius: 5px;
-  padding: 10px 5px;
+  padding: 10px;
   margin: 10px 0; }
 
-#sidebar-first h2 {
+#sidebar-first h2, .views-exposed-form label {
   font-size: 15px;
   font-weight: bold; }
 
-ul.facetapi-facetapi-links {
+ul.facetapi-facetapi-checkbox-links {
   list-style: none outside none; }
-  ul.facetapi-facetapi-links li, ul.facetapi-facetapi-links li.leaf {
+  ul.facetapi-facetapi-checkbox-links li, ul.facetapi-facetapi-checkbox-links li.leaf {
     list-style: none outside none;
     margin: 0;
     padding: 0; }
-    ul.facetapi-facetapi-links li a, ul.facetapi-facetapi-links li.leaf a {
+    ul.facetapi-facetapi-checkbox-links li a, ul.facetapi-facetapi-checkbox-links li.leaf a {
       text-decoration: none; }
 
-.view-resources .views-row {
-  border-top: 1px solid #5d5d5d;
+.view-cwp-resources .views-row {
+  border-top: 1px solid #0f3f67;
   padding: 20px 10px; }
+
+#edit-keywords-wrapper input {
+  width: 100%; }
 
 * {
   -webkit-box-sizing: border-box;
