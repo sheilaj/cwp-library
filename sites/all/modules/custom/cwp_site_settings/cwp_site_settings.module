@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the CWP: Site settings feature.
+ */
+
+include_once 'cwp_site_settings.features.inc';
