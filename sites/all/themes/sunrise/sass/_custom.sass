@@ -163,8 +163,136 @@ ul.facetapi-facetapi-checkbox-links
 
 .view-cwp-resources
   .views-row
-    border-top: 1px solid #0f3f67
+    border-top: 1px solid #efefef
     padding: 20px 10px
+    .views-field-field-category
+      height: 20px
+      .category,
+      .province,
+      .tags
+        float: left
+        margin: 8px 0
+        ul
+          list-style-type: none
+          margin: 0
+          li
+            margin: 0 10px 0 0
+            float: left
+            a
+              background-color: #efefef
+              border-radius: 5px
+              padding: 2px 8px
+              margin: 0
+      .category
+        ul
+          li
+            a
+              background-color: #ef812a
+              color: #ffffff
+    .views-field-url
+      float: right
+      span
+        position: relative
+        top: -10px
+        padding-right: 10px
+  .views-row-last
+    border-bottom: 1px solid #efefef
+  .pager
+    margin: 15px
 
-#edit-keywords-wrapper input
-  width: 100%
+#edit-keywords-wrapper
+  float: left
+  width: 145px
+  input
+    width: 100%
+
+.views-exposed-widget.views-submit-button
+  float: left
+  width: 25px
+
+/* Resource node page
+.node-type-resource
+  #content-area
+    margin-bottom: 20px
+  h1
+    color: #0f3f67
+  .field
+    margin: 5px 0
+  .field-name-field-summary
+    .field-items
+      margin-bottom: 15px
+  .field-name-field-category,
+  .field-name-field-province,
+  .field-name-field-resource-tags
+    float: left
+    margin: 8px 0
+    div.field-item
+      margin: 0 10px 0 0
+      float: left
+      a
+        background-color: #efefef
+        border-radius: 5px
+        padding: 2px 8px
+        margin: 0
+  .field-name-field-category
+    div.field-item
+      a
+        background-color: #ef812a
+        color: #ffffff
+
+#block-views-cwp_related_resources-block
+  background: #EFEFEF
+  border-radius: 5px
+  padding: 10px
+  margin: 10px 0
+  h2
+    font-size: 18px
+    font-weight: bold
+  .views-row
+    border-top: 1px solid #ddd
+    padding: 15px 0
+  .views-row-last
+    border-bottom: 1px solid #ddd
+
+#closing
+  #social-media
+    a
+      text-decoration: none
+
+#navbarright
+  float: right
+  font-size: 12px
+  margin-top: 14px
+  padding: 3px 10px
+  .block
+    float: right
+  .block-text-resize
+    h2
+      font-size: 12px
+      font-weight: normal
+      margin: 0
+      float: left
+    div.content
+      float: right
+      a
+        float: left
+        margin: 0 0 0 10px
+        cursor: pointer
+      a#text_resize_decrease
+        background: url('../images/bt.minus.png') no-repeat
+      a#text_resize_increase
+        background: url('../images/bt.plus.png') no-repeat
+  .block-addthis
+    border-left: 1px solid #D3D3D3
+    padding: 0 0 0 10px
+    margin: 0
+
+.tipsy
+  .tipsy-inner
+    padding: 5px 8px 5px 8px
+    background-color: #0f3f67
+    color: #fff
+    font-size: 12px
+    max-width: 300px
+  .tipsy-arrow
+    display: none

@@ -778,6 +778,8 @@ abstract class FacetapiAdapter {
         'sort_weight' => array(),
         'sort_order' => array(),
         'empty_behavior' => 'none',
+        'title_override' => 0,
+        'title' => $facet['label'],
       );
 
       // Apply default sort info only if the configuration is "new".

@@ -13,6 +13,41 @@ function cwp_resources_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
+  $context->name = 'resource_node';
+  $context->description = '';
+  $context->tag = 'Resources';
+  $context->conditions = array(
+    'node' => array(
+      'values' => array(
+        'resource' => 'resource',
+      ),
+      'options' => array(
+        'node_form' => '0',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'views-cwp_related_resources-block' => array(
+          'module' => 'views',
+          'delta' => 'cwp_related_resources-block',
+          'region' => 'sidebar_second',
+          'weight' => '-10',
+        ),
+      ),
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Resources');
+  $export['resource_node'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
   $context->name = 'resources_page';
   $context->description = '';
   $context->tag = 'Resources';
@@ -26,6 +61,12 @@ function cwp_resources_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'cwp_resources-cwp_category_header' => array(
+          'module' => 'cwp_resources',
+          'delta' => 'cwp_category_header',
+          'region' => 'header',
+          'weight' => '-9',
+        ),
         'views--exp-cwp_resources-page' => array(
           'module' => 'views',
           'delta' => '-exp-cwp_resources-page',
@@ -50,11 +91,11 @@ function cwp_resources_context_default_contexts() {
           'region' => 'sidebar_first',
           'weight' => '-15',
         ),
-        'facetapi-C3VWfMMd1Vz27iIwDozBLhW0pBd0uc1F' => array(
+        'facetapi-KA9irCgB7ZWD4DaagJkyuVhVBKpZ68eh' => array(
           'module' => 'facetapi',
-          'delta' => 'C3VWfMMd1Vz27iIwDozBLhW0pBd0uc1F',
+          'delta' => 'KA9irCgB7ZWD4DaagJkyuVhVBKpZ68eh',
           'region' => 'sidebar_first',
-          'weight' => '-14',
+          'weight' => '-10',
         ),
       ),
     ),

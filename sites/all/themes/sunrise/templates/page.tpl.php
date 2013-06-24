@@ -27,8 +27,11 @@
       <nav id="navigation" class="menu">
         <?php print theme('nice_menus_main_menu', array('direction' => 'down', 'depth' => '-1')); ?>
       </nav> <!-- /navigation -->
-      <div id="addthissub"></div>
-      <div id="sizer"></div>
+      <?php if ($page['navbarright']): ?>
+        <div id="navbarright">
+          <?php print render($page['navbarright']); ?>
+        </div>
+      <?php endif; ?>
     </div>
 
     <?php if ($page['header']): ?>
@@ -48,7 +51,7 @@
         <?php if ($breadcrumb || $title|| $messages || $tabs || $action_links): ?>
           <div id="content-header">
 
-            <?php print $breadcrumb; ?>
+            <?php //print $breadcrumb; ?>
 
             <?php if ($page['highlighted']): ?>
               <div id="highlighted"><?php print render($page['highlighted']) ?></div>
@@ -109,10 +112,14 @@
 
 <div id="closing">
 
-  <div id="facebook">
+  <div id="social-media">
     <strong>Follow Us: </strong>
-    <a target="_blank" href="http://twitter.com/CWP_CSP">Twitter</a>
-    <a target="_blank" href="http://www.facebook.com/pages/Canada-Without-Poverty/106633876058589">Facebook</a>
+    <a id="twitter" target="_blank" href="http://twitter.com/CWP_CSP">
+      <img src="<?php print url(drupal_get_path('theme', 'sunrise') . '/images/twitter.png'); ?>" alt="twitter" title="Twitter"/>
+    </a>
+    <a id="facebook" target="_blank" href="http://www.facebook.com/pages/Canada-Without-Poverty/106633876058589">
+      <img src="<?php print url(drupal_get_path('theme', 'sunrise') . '/images/facebook.png'); ?>" alt="facebook" title="Facebook"/>
+    </a>
   </div>
 
   <div id="site-info">Copyright © <?php print date('Y'); ?> Canada Without Poverty -

@@ -5,3 +5,13 @@
  */
 
 include_once 'cwp_site_settings.features.inc';
+
+/**
+ * Implements hook_block_info_alter().
+ */
+function cwp_site_settings_block_info_alter(&$blocks, $theme, $code_blocks) {
+  // Change text_resize block title text
+  if ($blocks['text_resize']) {
+    $blocks['text_resize'][0]['title'] = t('Font Size');
+  }
+}

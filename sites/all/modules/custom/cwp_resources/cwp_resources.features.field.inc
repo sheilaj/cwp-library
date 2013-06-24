@@ -50,7 +50,7 @@ function cwp_resources_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '1',
+          'weight' => '3',
         ),
         'search_result' => array(
           'label' => 'inline',
@@ -127,11 +127,11 @@ function cwp_resources_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'inline',
+          'label' => 'hidden',
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => '4',
+          'weight' => '8',
         ),
         'search_result' => array(
           'label' => 'inline',
@@ -156,13 +156,13 @@ function cwp_resources_field_default_fields() {
       ),
       'widget' => array(
         'active' => 0,
-        'module' => 'taxonomy',
+        'module' => 'options',
         'settings' => array(
           'autocomplete_path' => 'taxonomy/autocomplete',
           'size' => 60,
         ),
-        'type' => 'taxonomy_autocomplete',
-        'weight' => '5',
+        'type' => 'options_select',
+        'weight' => '7',
       ),
     ),
   );
@@ -204,11 +204,11 @@ function cwp_resources_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'hidden',
+          'label' => 'inline',
           'module' => 'file',
           'settings' => array(),
           'type' => 'file_default',
-          'weight' => '3',
+          'weight' => '5',
         ),
         'search_result' => array(
           'label' => 'hidden',
@@ -226,7 +226,7 @@ function cwp_resources_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_file',
-      'label' => 'File',
+      'label' => 'Download',
       'required' => 0,
       'settings' => array(
         'description_field' => 1,
@@ -242,7 +242,7 @@ function cwp_resources_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'file_generic',
-        'weight' => '1',
+        'weight' => '5',
       ),
     ),
   );
@@ -332,7 +332,7 @@ function cwp_resources_field_default_fields() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_field',
-        'weight' => '10',
+        'weight' => '14',
       ),
     ),
   );
@@ -377,7 +377,7 @@ function cwp_resources_field_default_fields() {
           'label' => 'hidden',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '9',
+          'weight' => '13',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -405,42 +405,39 @@ function cwp_resources_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-resource-field_province_territory'.
-  $fields['node-resource-field_province_territory'] = array(
+  // Exported field: 'node-resource-field_province'.
+  $fields['node-resource-field_province'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '1',
+      'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_province_territory',
-      'foreign keys' => array(),
+      'field_name' => 'field_province',
+      'foreign keys' => array(
+        'tid' => array(
+          'columns' => array(
+            'tid' => 'tid',
+          ),
+          'table' => 'taxonomy_term_data',
+        ),
+      ),
       'indexes' => array(
-        'value' => array(
-          0 => 'value',
+        'tid' => array(
+          0 => 'tid',
         ),
       ),
       'locked' => '0',
-      'module' => 'list',
+      'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
-          'AB' => 'Alberta',
-          'BC' => 'British Columbia',
-          'MB' => 'Manitoba',
-          'NB' => 'New Brunswick',
-          'NL' => 'Newfoundland and Labrador',
-          'NT' => 'Northwest Territories',
-          'NS' => 'Nova Scotia',
-          'NU' => 'Nunavut',
-          'ON' => 'Ontario',
-          'PE' => 'Prince Edward Island',
-          'QC' => 'Québec',
-          'SK' => 'Saskatchewan',
-          'YT' => 'Yukon',
+          0 => array(
+            'vocabulary' => 'province',
+            'parent' => '0',
+          ),
         ),
-        'allowed_values_function' => '',
       ),
       'translatable' => '0',
-      'type' => 'list_text',
+      'type' => 'taxonomy_term_reference',
     ),
     'field_instance' => array(
       'bundle' => 'resource',
@@ -449,11 +446,11 @@ function cwp_resources_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'inline',
-          'module' => 'list',
+          'label' => 'hidden',
+          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'list_default',
-          'weight' => '11',
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => '10',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -463,7 +460,7 @@ function cwp_resources_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_province_territory',
+      'field_name' => 'field_province',
       'label' => 'Province/Territory',
       'required' => 0,
       'settings' => array(
@@ -474,28 +471,28 @@ function cwp_resources_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '8',
+        'weight' => '9',
       ),
     ),
   );
 
-  // Exported field: 'node-resource-field_publication_date'.
-  $fields['node-resource-field_publication_date'] = array(
+  // Exported field: 'node-resource-field_pub_date'.
+  $fields['node-resource-field_pub_date'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_publication_date',
+      'field_name' => 'field_pub_date',
       'foreign keys' => array(),
       'indexes' => array(),
       'locked' => '0',
       'module' => 'date',
       'settings' => array(
         'cache_count' => '4',
-        'cache_enabled' => 1,
+        'cache_enabled' => 0,
         'granularity' => array(
-          'day' => 'day',
+          'day' => 0,
           'hour' => 0,
           'minute' => 0,
           'month' => 'month',
@@ -518,20 +515,7 @@ function cwp_resources_field_default_fields() {
           'label' => 'inline',
           'module' => 'date',
           'settings' => array(
-            'format_type' => 'long',
-            'fromto' => 'both',
-            'multiple_from' => '',
-            'multiple_number' => '',
-            'multiple_to' => '',
-          ),
-          'type' => 'date_default',
-          'weight' => '2',
-        ),
-        'search_result' => array(
-          'label' => 'inline',
-          'module' => 'date',
-          'settings' => array(
-            'format_type' => 'long',
+            'format_type' => 'short',
             'fromto' => 'both',
             'multiple_from' => '',
             'multiple_number' => '',
@@ -544,11 +528,11 @@ function cwp_resources_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '0',
+          'weight' => 0,
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_publication_date',
+      'field_name' => 'field_pub_date',
       'label' => 'Publication date',
       'required' => 0,
       'settings' => array(
@@ -563,14 +547,14 @@ function cwp_resources_field_default_fields() {
         'module' => 'date',
         'settings' => array(
           'increment' => '15',
-          'input_format' => 'm/d/Y - H:i:s',
+          'input_format' => 'M j Y - H:i:s',
           'input_format_custom' => '',
-          'label_position' => 'above',
+          'label_position' => 'within',
           'text_parts' => array(),
-          'year_range' => '-10:+2',
+          'year_range' => '-10:+1',
         ),
-        'type' => 'date_popup',
-        'weight' => '4',
+        'type' => 'date_select',
+        'weight' => '2',
       ),
     ),
   );
@@ -615,7 +599,7 @@ function cwp_resources_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '2',
+          'weight' => '4',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -729,7 +713,7 @@ function cwp_resources_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'image_image',
-        'weight' => '8',
+        'weight' => '13',
       ),
     ),
   );
@@ -771,11 +755,11 @@ function cwp_resources_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'inline',
           'module' => 'link',
           'settings' => array(),
           'type' => 'link_default',
-          'weight' => '5',
+          'weight' => '6',
         ),
         'search_result' => array(
           'label' => 'above',
@@ -793,7 +777,7 @@ function cwp_resources_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_resource_link',
-      'label' => 'Link to resource',
+      'label' => 'Source',
       'required' => 0,
       'settings' => array(
         'attributes' => array(
@@ -807,6 +791,7 @@ function cwp_resources_field_default_fields() {
           'url_cutoff' => '80',
         ),
         'enable_tokens' => 1,
+        'rel_remove' => 'default',
         'title' => 'required',
         'title_maxlength' => '128',
         'title_value' => '',
@@ -819,7 +804,7 @@ function cwp_resources_field_default_fields() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_field',
-        'weight' => '0',
+        'weight' => '6',
       ),
     ),
   );
@@ -865,11 +850,11 @@ function cwp_resources_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'inline',
+          'label' => 'hidden',
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => '8',
+          'weight' => '11',
         ),
         'search_result' => array(
           'label' => 'above',
@@ -900,7 +885,7 @@ function cwp_resources_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'taxonomy_autocomplete',
-        'weight' => '6',
+        'weight' => '10',
       ),
     ),
   );
@@ -943,7 +928,7 @@ function cwp_resources_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '6',
+          'weight' => '1',
         ),
         'search_result' => array(
           'label' => 'above',
@@ -975,7 +960,7 @@ function cwp_resources_field_default_fields() {
           'rows' => '5',
         ),
         'type' => 'text_textarea',
-        'weight' => '7',
+        'weight' => '1',
       ),
     ),
   );
@@ -998,20 +983,18 @@ function cwp_resources_field_default_fields() {
     ),
     'field_instance' => array(
       'bundle' => 'resource',
-      'default_value' => NULL,
+      'default_value' => array(
+        0 => array(
+          'value' => '0',
+        ),
+      ),
       'deleted' => '0',
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'above',
-          'module' => 'number',
-          'settings' => array(
-            'decimal_separator' => '.',
-            'prefix_suffix' => TRUE,
-            'scale' => 0,
-            'thousand_separator' => ' ',
-          ),
-          'type' => 'number_integer',
+          'label' => 'inline',
+          'settings' => array(),
+          'type' => 'hidden',
           'weight' => '12',
         ),
         'teaser' => array(
@@ -1037,7 +1020,81 @@ function cwp_resources_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '13',
+        'weight' => '12',
+      ),
+    ),
+  );
+
+  // Exported field: 'taxonomy_term-category-field_image'.
+  $fields['taxonomy_term-category-field_image'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_image',
+      'foreign keys' => array(
+        'fid' => array(
+          'columns' => array(
+            'fid' => 'fid',
+          ),
+          'table' => 'file_managed',
+        ),
+      ),
+      'indexes' => array(
+        'fid' => array(
+          0 => 'fid',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'image',
+      'settings' => array(
+        'default_image' => 0,
+        'uri_scheme' => 'public',
+      ),
+      'translatable' => '0',
+      'type' => 'image',
+    ),
+    'field_instance' => array(
+      'bundle' => 'category',
+      'deleted' => '0',
+      'description' => 'Banner image to show at the top of the resources page when this category is selected.',
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'module' => 'image',
+          'settings' => array(
+            'image_link' => '',
+            'image_style' => '',
+          ),
+          'type' => 'image',
+          'weight' => '0',
+        ),
+      ),
+      'entity_type' => 'taxonomy_term',
+      'field_name' => 'field_image',
+      'label' => 'Image',
+      'required' => 0,
+      'settings' => array(
+        'alt_field' => 1,
+        'default_image' => 0,
+        'file_directory' => 'category-field_image',
+        'file_extensions' => 'png gif jpg jpeg',
+        'max_filesize' => '',
+        'max_resolution' => '',
+        'min_resolution' => '',
+        'title_field' => 0,
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'image',
+        'settings' => array(
+          'preview_image_style' => 'thumbnail',
+          'progress_indicator' => 'throbber',
+        ),
+        'type' => 'image_image',
+        'weight' => '31',
       ),
     ),
   );
@@ -1045,15 +1102,16 @@ function cwp_resources_field_default_fields() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Author');
+  t('Banner image to show at the top of the resources page when this category is selected.');
   t('Category');
-  t('File');
+  t('Download');
   t('French Link');
   t('Image');
   t('Key resource');
-  t('Link to resource');
   t('Province/Territory');
   t('Publication date');
   t('Publisher');
+  t('Source');
   t('Summary');
   t('Tags');
   t('Weight');

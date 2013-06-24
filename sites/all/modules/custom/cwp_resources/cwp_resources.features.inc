@@ -30,6 +30,37 @@ function cwp_resources_views_api() {
 }
 
 /**
+ * Implements hook_image_default_styles().
+ */
+function cwp_resources_image_default_styles() {
+  $styles = array();
+
+  // Exported image style: banner.
+  $styles['banner'] = array(
+    'name' => 'banner',
+    'effects' => array(
+      1 => array(
+        'label' => 'Scale and crop',
+        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
+        'effect callback' => 'image_scale_and_crop_effect',
+        'dimensions callback' => 'image_resize_dimensions',
+        'form callback' => 'image_resize_form',
+        'summary theme' => 'image_resize_summary',
+        'module' => 'image',
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => '799',
+          'height' => '209',
+        ),
+        'weight' => '1',
+      ),
+    ),
+  );
+
+  return $styles;
+}
+
+/**
  * Implements hook_node_info().
  */
 function cwp_resources_node_info() {
@@ -66,12 +97,14 @@ function cwp_resources_default_search_api_index() {
         "created" : { "type" : "date" },
         "changed" : { "type" : "date" },
         "field_author" : { "type" : "text", "boost" : "3.0" },
-        "field_category" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
-        "field_province_territory" : { "type" : "string" },
-        "field_publication_date" : { "type" : "date" },
-        "field_publisher" : { "type" : "string" },
         "field_resource_tags" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
+        "field_category" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_summary" : { "type" : "text", "boost" : "3.0" },
+        "field_publisher" : { "type" : "string" },
+        "field_weight" : { "type" : "integer" },
+        "field_key_resource" : { "type" : "boolean" },
+        "field_pub_date" : { "type" : "date" },
+        "field_province" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "search_api_language" : { "type" : "string" }
       },
       "data_alter_callbacks" : {
@@ -82,10 +115,15 @@ function cwp_resources_default_search_api_index() {
         },
         "search_api_alter_node_access" : { "status" : 0, "weight" : "0", "settings" : [] },
         "search_api_alter_node_status" : { "status" : 1, "weight" : "0", "settings" : [] },
-        "search_api_alter_add_hierarchy" : { "status" : 0, "weight" : "0", "settings" : { "fields" : [] } },
+        "search_api_alter_language_control" : {
+          "status" : 0,
+          "weight" : "0",
+          "settings" : { "lang_field" : "", "languages" : [] }
+        },
         "search_api_alter_add_viewed_entity" : { "status" : 0, "weight" : "0", "settings" : { "mode" : "full" } },
         "search_api_alter_add_url" : { "status" : 0, "weight" : "0", "settings" : [] },
-        "search_api_alter_add_aggregation" : { "status" : 0, "weight" : "0", "settings" : [] }
+        "search_api_alter_add_aggregation" : { "status" : 0, "weight" : "0", "settings" : [] },
+        "search_api_alter_add_hierarchy" : { "status" : 0, "weight" : "0", "settings" : { "fields" : [] } }
       },
       "processors" : {
         "search_api_case_ignore" : {
@@ -104,7 +142,7 @@ function cwp_resources_default_search_api_index() {
           }
         },
         "search_api_tokenizer" : {
-          "status" : 0,
+          "status" : 1,
           "weight" : "20",
           "settings" : {
             "fields" : { "title" : true, "field_author" : true, "field_summary" : true },
@@ -174,11 +212,6 @@ function cwp_resources_default_search_api_server() {
             "type" : "list\\u003Cinteger\\u003E",
             "boost" : "1.0"
           },
-          "field_publication_date" : {
-            "table" : "search_api_db_cwp_resources_field_publication_date",
-            "type" : "date",
-            "boost" : "1.0"
-          },
           "field_category" : {
             "table" : "search_api_db_cwp_resources_field_category",
             "type" : "list\\u003Cinteger\\u003E",
@@ -194,14 +227,29 @@ function cwp_resources_default_search_api_server() {
             "type" : "string",
             "boost" : "1.0"
           },
-          "field_province_territory" : {
-            "table" : "search_api_db_cwp_resources_field_province_territory",
-            "type" : "string",
-            "boost" : "1.0"
-          },
           "search_api_language" : {
             "table" : "search_api_db_cwp_resources_search_api_language",
             "type" : "string",
+            "boost" : "1.0"
+          },
+          "field_pub_date" : {
+            "table" : "search_api_db_cwp_resources_field_pub_date",
+            "type" : "date",
+            "boost" : "1.0"
+          },
+          "field_weight" : {
+            "table" : "search_api_db_cwp_resources_field_weight",
+            "type" : "integer",
+            "boost" : "1.0"
+          },
+          "field_key_resource" : {
+            "table" : "search_api_db_cwp_resources_field_key_resource",
+            "type" : "boolean",
+            "boost" : "1.0"
+          },
+          "field_province" : {
+            "table" : "search_api_db_cwp_resources_field_province",
+            "type" : "list\\u003Cinteger\\u003E",
             "boost" : "1.0"
           }
         }

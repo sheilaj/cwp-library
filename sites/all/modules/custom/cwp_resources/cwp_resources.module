@@ -34,7 +34,82 @@ function cwp_resources_term_uri($term) {
             'query' => array('f[0]' => 'field_resource_tags:' . $term->tid)
           )
         );
+    case 'province':
+      return array(
+        'path' => 'resources/',
+          'options' => array(
+            'query' => array('f[0]' => 'field_province:' . $term->tid)
+          )
+        );
     default:
       return array('path' => 'taxonomy/term/' . $term->tid);
   }
+}
+
+/**
+ * Implements hook_facet_items_alter(), provided by facetapi_bonus module.
+ * Must "configure filters" for a facet and enable
+ * "Rewrite facet items via callback function" filter.
+ */
+function cwp_resources_facet_items_alter(&$build, &$settings) {
+
+  if ($settings->facet == "field_category") {
+    foreach($build as $key => $item) {
+      $term = taxonomy_term_load($key);
+      $description = $term->description;
+      $build[$key]["#markup"] =  '<span class="description-tip" description="'. $description . '">' .  $item["#markup"] . '</span>';
+      $build[$key]["#html"] = TRUE;
+    }
+  }
+
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function cwp_resources_block_info() {
+  return array(
+    'cwp_category_header' => array(
+      'info' => t('CWP: Category header image'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function cwp_resources_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+    case 'cwp_category_header':
+      $block['subject'] = '';
+      $block['content'] = cwp_resources_cwp_category_header_block_content();
+      break;
+  }
+
+  return $block;
+}
+
+/**
+ * Returns HTML for cwp_category_header block.
+ */
+function cwp_resources_cwp_category_header_block_content() {
+  $params = drupal_get_query_parameters();
+  if (isset($params['f'])) {
+    foreach ($params['f'] as $facet) {
+      $pair = explode(':', $facet);
+      if ($pair[0] == 'field_category' && is_numeric($pair[1])) {
+        $tid = $pair[1];
+        return views_embed_view('cwp_category_image', 'header', $tid);
+      }
+    }
+  }
+
+  $params = array(
+    'style_name' => 'banner',
+    'path' => drupal_get_path('theme', 'sunrise') . '/images/resources.jpg',
+  );
+  return theme('image', $params);
+
 }

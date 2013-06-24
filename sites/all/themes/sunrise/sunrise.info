@@ -1,11 +1,12 @@
 name = Sunrise
 description = CWP theme, uses Basic base: HTML5, SASS, Responsive grid base theme.
-screenshot = images/screenshot.gif
+screenshot = images/screenshot.png
 core = "7.x"
 project = "sunrise"
 engine = phptemplate
 
 regions[page_top] = Page top
+regions[navbarright] = Navbar right
 regions[header] = Header
 regions[highlighted] = Highlighted
 regions[help] = Help
