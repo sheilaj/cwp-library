@@ -108,6 +108,45 @@ function cwp_site_settings_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'tipsy';
+  $strongarm->value = array(
+    'drupal_forms' => array(
+      'forms' => 0,
+      'options' => array(
+        'fade' => 1,
+        'gravity' => 'autoWE',
+        'delayIn' => '0',
+        'delayOut' => '0',
+        'trigger' => 'focus',
+        'opacity' => '0.8',
+        'offset' => '0',
+      ),
+    ),
+    'custom_selectors' => array(
+      0 => array(
+        'selector' => '.description-tip',
+        'options' => array(
+          'fade' => 1,
+          'gravity' => 'sw',
+          'trigger' => 'hover',
+          'delayIn' => '0',
+          'delayOut' => '0',
+          'opacity' => '1',
+          'offset' => '0',
+          'html' => 0,
+          'tooltip_content' => array(
+            'source' => 'attribute',
+            'selector' => 'description',
+          ),
+        ),
+      ),
+    ),
+  );
+  $export['tipsy'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'user_register';
   $strongarm->value = 2;
   $export['user_register'] = $strongarm;
