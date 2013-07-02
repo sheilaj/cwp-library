@@ -14,6 +14,57 @@
   margin: 0 auto
   width: auto
 
+#menu-top
+  ul
+    font-size: 11px
+    font-weight: normal
+    margin-top: 2px
+    list-style: none
+
+    li
+      line-height: 11px
+      padding: 0
+      float: left
+      list-style: none
+      margin: 0
+
+      a
+        color: #5C5C5C
+        display: block
+        padding: 0 0 0 20px
+        text-decoration: none
+
+#donatenow
+  float: right
+  margin-top: 27px
+  text-align: right
+
+  a
+    background: url('../images/bt.donate.png')
+    height: 27px
+    width: 115px
+    display: block
+    text-indent: -9999px
+
+#search
+  float: right
+  margin-right: 20px
+  margin-top: 29px
+  line-height: 16px
+  input
+    border: 1px solid #D5D5D5
+    color: #5D5D5D
+    font-size: 13px
+    padding: 2px
+    padding-left: 3px
+    width: 175px
+
+#cwp-search-cwp-site
+  .form-item
+    margin: 0
+  #edit-submit
+    display: none
+
 #branding
   height: 76px
 
@@ -99,45 +150,33 @@
           padding: 6px 20px 0
           text-decoration: none
 
-
-#menu-top
-
-  ul
-    font-size: 11px
-    font-weight: normal
-    margin-top: 2px
-    list-style: none
-
-    li
-      line-height: 11px
-      padding: 0
-      float: left
-      list-style: none
+#navbarright
+  float: right
+  font-size: 12px
+  margin-top: 14px
+  padding: 3px 10px
+  .block
+    float: right
+  .block-text-resize
+    h2
+      font-size: 12px
+      font-weight: normal
       margin: 0
-
+      float: left
+    div.content
+      float: right
       a
-        color: #5C5C5C
-        display: block
-        padding: 0 0 0 20px
-        text-decoration: none
-
-#donatenow
-  float: right
-  margin-top: 27px
-  text-align: right
-
-  a
-    background: url('../images/bt.donate.png')
-    height: 27px
-    width: 115px
-    display: block
-    text-indent: -9999px
-    
-
-#search
-  float: right
-  margin-right: 20px
-  margin-top: 29px
+        float: left
+        margin: 0 0 0 10px
+        cursor: pointer
+      a#text_resize_decrease
+        background: url('../images/bt.minus.png') no-repeat
+      a#text_resize_increase
+        background: url('../images/bt.plus.png') no-repeat
+  .block-addthis
+    border-left: 1px solid #D3D3D3
+    padding: 0 0 0 10px
+    margin: 0
 
 /* Resources page
 div.block-facetapi, div#block-views--exp-cwp_resources-page
@@ -164,7 +203,7 @@ ul.facetapi-facetapi-checkbox-links
 .view-cwp-resources
   .views-row
     border-top: 1px solid #efefef
-    padding: 20px 10px
+    padding: 20px 5px
     .views-field-field-category
       height: 20px
       .category,
@@ -202,13 +241,12 @@ ul.facetapi-facetapi-checkbox-links
 
 #edit-keywords-wrapper
   float: left
-  width: 145px
+  width: 170px
   input
     width: 100%
 
-.views-exposed-widget.views-submit-button
-  float: left
-  width: 25px
+#views-exposed-form-cwp-resources-page .views-submit-button
+  display: none
 
 /* Resource node page
 .node-type-resource
@@ -254,39 +292,6 @@ ul.facetapi-facetapi-checkbox-links
   .views-row-last
     border-bottom: 1px solid #ddd
 
-#closing
-  #social-media
-    a
-      text-decoration: none
-
-#navbarright
-  float: right
-  font-size: 12px
-  margin-top: 14px
-  padding: 3px 10px
-  .block
-    float: right
-  .block-text-resize
-    h2
-      font-size: 12px
-      font-weight: normal
-      margin: 0
-      float: left
-    div.content
-      float: right
-      a
-        float: left
-        margin: 0 0 0 10px
-        cursor: pointer
-      a#text_resize_decrease
-        background: url('../images/bt.minus.png') no-repeat
-      a#text_resize_increase
-        background: url('../images/bt.plus.png') no-repeat
-  .block-addthis
-    border-left: 1px solid #D3D3D3
-    padding: 0 0 0 10px
-    margin: 0
-
 .tipsy
   .tipsy-inner
     padding: 5px 8px 5px 8px
@@ -296,3 +301,40 @@ ul.facetapi-facetapi-checkbox-links
     max-width: 300px
   .tipsy-arrow
     display: none
+
+/* Footer region
+.region-footer
+  border-top: 1px solid #ef812a
+  font-size: 12px
+  line-height: 16px
+
+#block-views-featured_content-footer
+  margin: 10px 0
+.view-featured-content
+  margin-top: 10px
+  .views-row-last
+    margin-right: 0 !important
+  .views-row
+    float: left
+    width: 240px
+    margin-right: 37px
+    .views-field-title
+      color: #EF812A
+      font-size: 12px
+      font-weight: bold
+      margin-bottom: 8px
+    a
+      text-decoration: none
+      color: #0099CC
+      a:link, a:visited
+        text-decoration: none
+        color: #0099CC
+      &:hover, &:active
+        text-decoration: underline
+        color: #0099CC
+
+/* Footer
+#closing
+  #social-media
+    a
+      text-decoration: none

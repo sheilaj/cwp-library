@@ -38,6 +38,12 @@ function cwp_site_settings_context_default_contexts() {
           'region' => 'navbarright',
           'weight' => '-18',
         ),
+        'views-featured_content-footer' => array(
+          'module' => 'views',
+          'delta' => 'featured_content-footer',
+          'region' => 'footer',
+          'weight' => '-10',
+        ),
       ),
     ),
   );

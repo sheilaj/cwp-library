@@ -1,0 +1,93 @@
+From 25d4ea06d41ae458f8bb3c2401af5385265f22ae Mon Sep 17 00:00:00 2001
+From: Mark Carver <mark.carver@me.com>
+Date: Mon, 12 Nov 2012 11:35:11 -0600
+Subject: [PATCH] Fix for [#1665164] - Override Facet Label
+
+---
+ facetapi.admin.inc           | 23 +++++++++++++++++++++++
+ plugins/facetapi/adapter.inc |  2 ++
+ plugins/facetapi/widget.inc  |  6 +++---
+ 3 files changed, 28 insertions(+), 3 deletions(-)
+
+diff --git a/facetapi.admin.inc b/facetapi.admin.inc
+index 4f2a43d..37320d0 100644
+--- a/facetapi.admin.inc
++++ b/facetapi.admin.inc
+@@ -422,6 +422,29 @@ function facetapi_facet_display_form($form, &$form_state, FacetapiAdapter $adapt
+     $plugin->settingsForm($form, $form_state);
+   }
+ 
++  $form['widget']['title_override'] = array(
++    '#type' => 'checkbox',
++    '#title' => t('Override Facet Title %default_title', array('%default_title' => '(' . t('Default') . ': ' . $facet['label'] . ')')),
++    '#default_value' => $facet_settings->settings['title_override'],
++    '#weight' => -12,
++  );
++  $form['widget']['title'] = array(
++    '#type' => 'textfield',
++    '#title' => t('Facet Title'),
++    '#description' => t('To remove or alter the default title prefix: "Filter by @title:", implement the following hook in your theme: !url.', array(
++      '!url' => l('THEME_facetapi_title()', 'http://drupalcontrib.org/api/drupal/contributions!facetapi!facetapi.theme.inc/function/theme_facetapi_title/7', array(
++        'attributes' => array('target' => '_blank'),
++      ))
++    )),
++    '#default_value' => $facet_settings->settings['title'],
++    '#states' => array(
++      'visible' => array(
++        'input[name="title_override"]' => array('checked' => TRUE),
++      ),
++    ),
++    '#weight' => -11,
++  );
++
+   $form['widget']['widget'] = array(
+     '#type' => 'select',
+     '#title' => t('Display widget'),
+diff --git a/plugins/facetapi/adapter.inc b/plugins/facetapi/adapter.inc
+index 58b4cfc..80ec5cd 100644
+--- a/plugins/facetapi/adapter.inc
++++ b/plugins/facetapi/adapter.inc
+@@ -778,6 +778,8 @@ abstract class FacetapiAdapter {
+         'sort_weight' => array(),
+         'sort_order' => array(),
+         'empty_behavior' => 'none',
++        'title_override' => 0,
++        'title' => $facet['label'],
+       );
+ 
+       // Apply default sort info only if the configuration is "new".
+diff --git a/plugins/facetapi/widget.inc b/plugins/facetapi/widget.inc
+index c84b2fa..9ffb7b8 100644
+--- a/plugins/facetapi/widget.inc
++++ b/plugins/facetapi/widget.inc
+@@ -102,8 +102,8 @@ abstract class FacetapiWidget {
+     $this->id = $id;
+     $this->realm = $realm;
+     $this->settings = $settings;
+-    $this->settings->settings += $this->getDefaultSettings();
+     $this->facet = $facet;
++    $this->settings->settings += $this->getDefaultSettings();
+ 
+     // Set the default key as the facet's alias.
+     $this->key = $facet['field alias'];
+@@ -112,7 +112,7 @@ abstract class FacetapiWidget {
+   /**
+    * Initializes the build, must be invoked prior to executing this widget.
+    *
+-   * This method is called automatically by FacetapiFacet::build() and shoud
++   * This method is called automatically by FacetapiFacet::build() and should
+    * rarely be invoked outside of that context. It is responsible for getting
+    * the base render array stored in the FacetapiFacet object and appending it
+    * to the container that will be returned, sorting the facets, and adding some
+@@ -128,7 +128,7 @@ abstract class FacetapiWidget {
+ 
+     // Initialize the render array.
+     $this->build = array(
+-      '#title' => $this->facet['label'],
++      '#title' => isset($this->settings->settings['title_override']) && !empty($this->settings->settings['title_override']) ? $this->settings->settings['title'] : $this->facet['label'],
+       '#description' => $this->facet['description'],
+       '#weight' => $this->facet['weight'],
+       '#adapter' => $this->facet->getAdapter(),
+-- 
+1.7.11.5
+

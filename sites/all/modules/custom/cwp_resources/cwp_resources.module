@@ -95,16 +95,16 @@ function cwp_resources_block_view($delta = '') {
  * Returns HTML for cwp_category_header block.
  */
 function cwp_resources_cwp_category_header_block_content() {
-  $params = drupal_get_query_parameters();
-  if (isset($params['f'])) {
-    foreach ($params['f'] as $facet) {
-      $pair = explode(':', $facet);
-      if ($pair[0] == 'field_category' && is_numeric($pair[1])) {
-        $tid = $pair[1];
-        return views_embed_view('cwp_category_image', 'header', $tid);
-      }
-    }
-  }
+  //$params = drupal_get_query_parameters();
+  //if (isset($params['f'])) {
+  //  foreach ($params['f'] as $facet) {
+  //    $pair = explode(':', $facet);
+  //    if ($pair[0] == 'field_category' && is_numeric($pair[1])) {
+  //      $tid = $pair[1];
+  //      return views_embed_view('cwp_category_image', 'header', $tid);
+  //    }
+  //  }
+  //}
 
   $params = array(
     'style_name' => 'banner',

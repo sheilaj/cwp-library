@@ -11,8 +11,11 @@
       <div id="donatenow">
         <a title="Donate Now" href="http://www.canadahelps.org/CharityProfilePage.aspx?charityID=s41272" alt="Donate"></a>
       </div>
+      <?php if ($cwp_search_form): ?>
       <div id="search">
+        <?php print $cwp_search_form; ?>
       </div>
+      <?php endif; ?>
     </div>
 
     <?php if ($logo): ?>

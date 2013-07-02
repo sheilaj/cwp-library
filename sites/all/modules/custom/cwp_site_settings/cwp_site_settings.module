@@ -15,3 +15,42 @@ function cwp_site_settings_block_info_alter(&$blocks, $theme, $code_blocks) {
     $blocks['text_resize'][0]['title'] = t('Font Size');
   }
 }
+
+/**
+ * Preprocessor for page.
+ */
+function cwp_site_settings_preprocess_page(&$vars) {
+  // Add search form and redirect to cwp-csp.ca (Wordpress site search)
+  $vars['cwp_search_form']  = drupal_render(drupal_get_form('cwp_search_cwp_site'));
+}
+
+/**
+ * Form builder; mimic cwp-csp.ca site search box.
+ */
+function cwp_search_cwp_site($form, &$form_state) {
+
+  $form['keyword_search'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Search'),
+    '#title_display' => 'invisible',
+    '#size' => 15,
+    '#default_value' => '',
+    '#attributes' => array('title' => t('Search')),
+    '#placeholder' => t('Search'),
+  );
+
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Search')
+  );
+
+  return $form;
+}
+
+/**
+ * Submit handler for cwp_search_cwp_site.
+ */
+function cwp_search_cwp_site_submit(&$form, &$form_state) {
+  $keyword_string = str_replace(' ', '+', trim($form_state['values']['keyword_search'])); 
+  $form_state['redirect'] = 'http://www.cwp-csp.ca?s='. $keyword_string;
+}
