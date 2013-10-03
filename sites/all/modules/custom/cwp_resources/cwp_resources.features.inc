@@ -7,16 +7,13 @@
 /**
  * Implements hook_ctools_plugin_api().
  */
-function cwp_resources_ctools_plugin_api() {
-  list($module, $api) = func_get_args();
+function cwp_resources_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "context" && $api == "context") {
     return array("version" => "3");
   }
-  list($module, $api) = func_get_args();
   if ($module == "facetapi" && $api == "facetapi_defaults") {
     return array("version" => "1");
   }
-  list($module, $api) = func_get_args();
   if ($module == "strongarm" && $api == "strongarm") {
     return array("version" => "1");
   }
@@ -25,8 +22,8 @@ function cwp_resources_ctools_plugin_api() {
 /**
  * Implements hook_views_api().
  */
-function cwp_resources_views_api() {
-  return array("version" => "3.0");
+function cwp_resources_views_api($module = NULL, $api = NULL) {
+  return array("api" => "3.0");
 }
 
 /**
@@ -49,12 +46,13 @@ function cwp_resources_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => '799',
-          'height' => '209',
+          'width' => 799,
+          'height' => 209,
         ),
-        'weight' => '1',
+        'weight' => 1,
       ),
     ),
+    'label' => 'banner',
   );
 
   return $styles;
@@ -99,7 +97,6 @@ function cwp_resources_default_search_api_index() {
         "field_author" : { "type" : "text", "boost" : "3.0" },
         "field_resource_tags" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_category" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
-        "field_summary" : { "type" : "text", "boost" : "3.0" },
         "field_publisher" : { "type" : "string" },
         "field_weight" : { "type" : "integer" },
         "field_key_resource" : { "type" : "boolean" },
@@ -216,11 +213,6 @@ function cwp_resources_default_search_api_server() {
             "table" : "search_api_db_cwp_resources_field_category",
             "type" : "list\\u003Cinteger\\u003E",
             "boost" : "1.0"
-          },
-          "field_summary" : {
-            "table" : "search_api_db_cwp_resources_field_summary",
-            "type" : "text",
-            "boost" : "3.0"
           },
           "field_publisher" : {
             "table" : "search_api_db_cwp_resources_field_publisher",
