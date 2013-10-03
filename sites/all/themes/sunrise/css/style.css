@@ -334,6 +334,26 @@ div.status {
     margin: 0; }
 
 /* Resources page */
+#block-cwp_resources-cwp_category_header div.resources-banner {
+  width: 540px; }
+  #block-cwp_resources-cwp_category_header div.resources-banner img {
+    width: 520px; }
+  #block-cwp_resources-cwp_category_header div.resources-banner .resources-banner-title {
+    color: white;
+    position: absolute;
+    left: 20px;
+    bottom: 50px; }
+#block-cwp_resources-cwp_category_header .node-resource {
+  width: 260px;
+  height: 209px;
+  background: #efefef;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 0; }
+  #block-cwp_resources-cwp_category_header .node-resource h2 {
+    font-size: 18px;
+    font-weight: bold; }
+
 div.block-facetapi, div#block-views--exp-cwp_resources-page {
   background: #efefef;
   border-radius: 5px;
