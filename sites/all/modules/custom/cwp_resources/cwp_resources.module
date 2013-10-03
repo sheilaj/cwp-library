@@ -113,13 +113,18 @@ function cwp_resources_cwp_category_header_block_content() {
   }
 
   // If no category-specific featured resource, get main featured resource.
-  if (!$featured_nid) {
-    $featured_nid = variable_get('main_featured_resource', '');
+  if (!isset($featured_nid)) {
+    $nid = variable_get('main_featured_resource', 0);
+    // If not set, get most recent resource from database.
+    if (!$nid) {
+      $nid = db_query_range("SELECT nid FROM {node} WHERE type='resource' ORDER BY created DESC", 0, 1)->fetchField();
+    }
+    $featured_nid = $nid;
   }
 
   $img_params = array(
     'style_name' => 'banner',
-    'path' => drupal_get_path('theme', 'sunrise') . '/images/resources.jpg',
+    'path' => drupal_get_path('theme', 'sunrise') . '/images/resources_cropped.jpg',
   );
 
   $content = array(
@@ -130,7 +135,7 @@ function cwp_resources_cwp_category_header_block_content() {
         '#markup' => theme('image', $img_params),
       ),
       'title' => array(
-        '#markup' => '<div class="resources-banner-title">' . t('Resources') . '</div>',
+        '#markup' => '<h1 class="resources-banner-title">' . t('Resources') . '</h1>',
       ),
     ),
     'featured' => array(
