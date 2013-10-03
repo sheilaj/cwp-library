@@ -92,24 +92,139 @@ function cwp_resources_block_view($delta = '') {
 }
 
 /**
- * Returns HTML for cwp_category_header block.
+ * Returns HTML for cwp_category_header block. Displayed on resource
+ * page using context.
  */
 function cwp_resources_cwp_category_header_block_content() {
+
+  // If a category is selected, change the title and
+  // get featured resource for that category.
   $params = drupal_get_query_parameters();
   if (isset($params['f'])) {
     foreach ($params['f'] as $facet) {
       $pair = explode(':', $facet);
       if ($pair[0] == 'field_category' && is_numeric($pair[1])) {
         $tid = $pair[1];
-        return views_embed_view('cwp_category_image', 'header', $tid);
+        $term = taxonomy_term_load($tid);
+        drupal_set_title(check_plain($term->name));
+        $featured_nid = !empty($term->field_featured_resource) ? $term->field_featured_resource[LANGUAGE_NONE][0]['target_id'] : 0;
       }
     }
   }
 
-  $params = array(
+  // If no category-specific featured resource, get main featured resource.
+  if (!$featured_nid) {
+    $featured_nid = variable_get('main_featured_resource', '');
+  }
+
+  $img_params = array(
     'style_name' => 'banner',
     'path' => drupal_get_path('theme', 'sunrise') . '/images/resources.jpg',
   );
-  return theme('image', $params);
 
+  $content = array(
+    'banner' => array(
+      '#type' => 'container',
+      '#attributes' => array('class' => array('resources-banner')),
+      'image' => array(
+        '#markup' => theme('image', $img_params),
+      ),
+      'title' => array(
+        '#markup' => '<div class="resources-banner-title">' . t('Resources') . '</div>',
+      ),
+    ),
+    'featured' => array(
+      '#markup' => render(node_view(node_load($featured_nid), 'teaser')),
+    ),
+  );
+
+  return render($content);
+}
+
+/**
+ * Implements hook_action_info().
+ */
+function cwp_resources_action_info() {
+  return array(
+    'cwp_resources_feature_resource_action' => array(
+      'type' => 'node',
+      'label' => t('Feature the selected resource'),
+      'configurable' => TRUE,
+      'vbo_configurable' => FALSE,
+      'triggers' => array('any'),
+    ),
+  );
+}
+
+/**
+ * Action form: cwp_resources_feature_resource_action.
+ */
+function cwp_resources_feature_resource_action_form($context) {
+  $form = array();
+
+  $vid = db_query("SELECT vid from {taxonomy_vocabulary} WHERE machine_name = 'category'")->fetchField();
+  $categories = taxonomy_get_tree($vid);
+  foreach ($categories as $tid => $term) {
+    $options[$term->tid] = check_plain($term->name);
+  }
+
+  $form['category'] = array(
+    '#type' => 'select',
+    '#title' => t('Category'),
+    '#description' => t('Either select a category to feature the resource when that category is used as a filter, or select None to show as the main featured resource when no category filter is used.'),
+    '#options' => $options,
+    '#multiple' =>  FALSE,
+  );
+
+  $form['#after_build'] = array('cwp_resources_feature_resource_action_afterbuild');
+  return $form;
+}
+
+/**
+ * After_build function for cwp_resources_feature_resource_action_form.
+ */
+function cwp_resources_feature_resource_action_afterbuild($form, $form_state) {
+  $options = array(0 => t('None: Main featured resource'));
+
+  $nid = $form_state['selection'][0];
+  $node_wrapper = entity_metadata_wrapper('node', node_load($nid));
+  foreach($node_wrapper->field_category->value() as $category) {
+    if ($category) {
+      $options[$category->tid] = check_plain($category->name);
+    }
+  }
+
+  $form['category']['#options'] = $options;
+  $form['category']['#default_value'] = $node_wrapper->field_category[0]->value();
+  return $form;
+}
+
+/**
+ * Submit handler for cwp_resources_feature_resource_action form.
+ */
+function cwp_resources_feature_resource_action_submit($form, $form_state) {
+  return $form_state['values'];
+}
+
+/**
+ * Action handler for cwp_resources_feature_resource_action form.
+ */
+function cwp_resources_feature_resource_action(&$node, $context) {
+
+  $tid = $context['category'];
+  if ($tid) {
+    $term = taxonomy_term_load($tid);
+    $term->field_featured_resource[LANGUAGE_NONE][0]['target_id'] = $node->nid;
+    taxonomy_term_save($term);
+  }
+  else {
+    variable_set('main_featured_resource', $node->nid);
+  }
+}
+
+/**
+ * Preprocessor for node.
+ */
+function cwp_resources_preprocess_node(&$vars) {
+  $vars['content']['links']['node']['#links']['node-readmore']['title'] = t('read more >>');
 }
