@@ -22,11 +22,11 @@ function cwp_site_settings_menu_default_menu_links() {
       ),
     ),
     'module' => 'menu',
-    'hidden' => '0',
-    'external' => '1',
-    'has_children' => '1',
-    'expanded' => '1',
-    'weight' => '-49',
+    'hidden' => 0,
+    'external' => 1,
+    'has_children' => 1,
+    'expanded' => 1,
+    'weight' => -49,
   );
   // Exported menu link: main-menu:http://www.cwp-csp.ca/action/collaborative-research/
   $menu_links['main-menu:http://www.cwp-csp.ca/action/collaborative-research/'] = array(
@@ -40,11 +40,11 @@ function cwp_site_settings_menu_default_menu_links() {
       ),
     ),
     'module' => 'menu',
-    'hidden' => '0',
-    'external' => '1',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-48',
+    'hidden' => 0,
+    'external' => 1,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -48,
     'parent_path' => 'http://www.cwp-csp.ca/action',
   );
   // Exported menu link: main-menu:http://www.cwp-csp.ca/action/dignityforall/
@@ -59,11 +59,11 @@ function cwp_site_settings_menu_default_menu_links() {
       ),
     ),
     'module' => 'menu',
-    'hidden' => '0',
-    'external' => '1',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-47',
+    'hidden' => 0,
+    'external' => 1,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -47,
     'parent_path' => 'http://www.cwp-csp.ca/action',
   );
   // Exported menu link: main-menu:http://www.cwp-csp.ca/action/ethnoculturalproject/
@@ -78,11 +78,11 @@ function cwp_site_settings_menu_default_menu_links() {
       ),
     ),
     'module' => 'menu',
-    'hidden' => '0',
-    'external' => '1',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-49',
+    'hidden' => 0,
+    'external' => 1,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -49,
     'parent_path' => 'http://www.cwp-csp.ca/action',
   );
   // Exported menu link: main-menu:http://www.cwp-csp.ca/action/poverty-and-human-rights/
@@ -97,11 +97,11 @@ function cwp_site_settings_menu_default_menu_links() {
       ),
     ),
     'module' => 'menu',
-    'hidden' => '0',
-    'external' => '1',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-50',
+    'hidden' => 0,
+    'external' => 1,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -50,
     'parent_path' => 'http://www.cwp-csp.ca/action',
   );
   // Exported menu link: main-menu:http://www.cwp-csp.ca/action/poverty-and-punchlines/
@@ -116,11 +116,11 @@ function cwp_site_settings_menu_default_menu_links() {
       ),
     ),
     'module' => 'menu',
-    'hidden' => '0',
-    'external' => '1',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-46',
+    'hidden' => 0,
+    'external' => 1,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -46,
     'parent_path' => 'http://www.cwp-csp.ca/action',
   );
   // Exported menu link: main-menu:http://www.cwp-csp.ca/get-involved/
@@ -135,11 +135,11 @@ function cwp_site_settings_menu_default_menu_links() {
       ),
     ),
     'module' => 'menu',
-    'hidden' => '0',
-    'external' => '1',
-    'has_children' => '1',
-    'expanded' => '0',
-    'weight' => '-48',
+    'hidden' => 0,
+    'external' => 1,
+    'has_children' => 1,
+    'expanded' => 0,
+    'weight' => -48,
   );
   // Exported menu link: main-menu:http://www.cwp-csp.ca/get-involved/donate/
   $menu_links['main-menu:http://www.cwp-csp.ca/get-involved/donate/'] = array(
@@ -153,11 +153,11 @@ function cwp_site_settings_menu_default_menu_links() {
       ),
     ),
     'module' => 'menu',
-    'hidden' => '0',
-    'external' => '1',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-49',
+    'hidden' => 0,
+    'external' => 1,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -49,
     'parent_path' => 'http://www.cwp-csp.ca/get-involved/',
   );
   // Exported menu link: main-menu:http://www.cwp-csp.ca/get-involved/events/
@@ -172,11 +172,11 @@ function cwp_site_settings_menu_default_menu_links() {
       ),
     ),
     'module' => 'menu',
-    'hidden' => '0',
-    'external' => '1',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-48',
+    'hidden' => 0,
+    'external' => 1,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -48,
     'parent_path' => 'http://www.cwp-csp.ca/get-involved/',
   );
   // Exported menu link: main-menu:http://www.cwp-csp.ca/get-involved/social-media/
@@ -191,11 +191,11 @@ function cwp_site_settings_menu_default_menu_links() {
       ),
     ),
     'module' => 'menu',
-    'hidden' => '0',
-    'external' => '1',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-50',
+    'hidden' => 0,
+    'external' => 1,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -50,
     'parent_path' => 'http://www.cwp-csp.ca/get-involved/',
   );
   // Exported menu link: main-menu:http://www.cwp-csp.ca/get-involved/support-dignity-for-all/
@@ -210,11 +210,11 @@ function cwp_site_settings_menu_default_menu_links() {
       ),
     ),
     'module' => 'menu',
-    'hidden' => '0',
-    'external' => '1',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-47',
+    'hidden' => 0,
+    'external' => 1,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -47,
     'parent_path' => 'http://www.cwp-csp.ca/get-involved/',
   );
   // Exported menu link: main-menu:http://www.cwp-csp.ca/human-rights-and-international-law/
@@ -229,11 +229,11 @@ function cwp_site_settings_menu_default_menu_links() {
       ),
     ),
     'module' => 'menu',
-    'hidden' => '0',
-    'external' => '1',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-50',
+    'hidden' => 0,
+    'external' => 1,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -50,
     'parent_path' => 'http://www.cwp-csp.ca/poverty/a-human-rights-violation/',
   );
   // Exported menu link: main-menu:http://www.cwp-csp.ca/poverty/
@@ -248,11 +248,11 @@ function cwp_site_settings_menu_default_menu_links() {
       ),
     ),
     'module' => 'menu',
-    'hidden' => '0',
-    'external' => '1',
-    'has_children' => '1',
-    'expanded' => '1',
-    'weight' => '-50',
+    'hidden' => 0,
+    'external' => 1,
+    'has_children' => 1,
+    'expanded' => 1,
+    'weight' => -50,
   );
   // Exported menu link: main-menu:http://www.cwp-csp.ca/poverty/a-human-rights-violation/
   $menu_links['main-menu:http://www.cwp-csp.ca/poverty/a-human-rights-violation/'] = array(
@@ -266,11 +266,11 @@ function cwp_site_settings_menu_default_menu_links() {
       ),
     ),
     'module' => 'menu',
-    'hidden' => '0',
-    'external' => '1',
-    'has_children' => '1',
-    'expanded' => '0',
-    'weight' => '-50',
+    'hidden' => 0,
+    'external' => 1,
+    'has_children' => 1,
+    'expanded' => 0,
+    'weight' => -50,
     'parent_path' => 'http://www.cwp-csp.ca/poverty/',
   );
   // Exported menu link: main-menu:http://www.cwp-csp.ca/poverty/a-human-rights-violation/economic-and-social-rights-2/
@@ -285,11 +285,11 @@ function cwp_site_settings_menu_default_menu_links() {
       ),
     ),
     'module' => 'menu',
-    'hidden' => '0',
-    'external' => '1',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-49',
+    'hidden' => 0,
+    'external' => 1,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -49,
     'parent_path' => 'http://www.cwp-csp.ca/poverty/a-human-rights-violation/',
   );
   // Exported menu link: main-menu:http://www.cwp-csp.ca/poverty/just-the-facts/
@@ -304,11 +304,11 @@ function cwp_site_settings_menu_default_menu_links() {
       ),
     ),
     'module' => 'menu',
-    'hidden' => '0',
-    'external' => '1',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-47',
+    'hidden' => 0,
+    'external' => 1,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -47,
     'parent_path' => 'http://www.cwp-csp.ca/poverty/',
   );
   // Exported menu link: main-menu:http://www.cwp-csp.ca/poverty/poverty-progress-profiles/
@@ -323,11 +323,11 @@ function cwp_site_settings_menu_default_menu_links() {
       ),
     ),
     'module' => 'menu',
-    'hidden' => '0',
-    'external' => '1',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-49',
+    'hidden' => 0,
+    'external' => 1,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -49,
     'parent_path' => 'http://www.cwp-csp.ca/poverty/',
   );
   // Exported menu link: main-menu:http://www.cwp-csp.ca/poverty/the-cost-of-poverty/
@@ -342,11 +342,11 @@ function cwp_site_settings_menu_default_menu_links() {
       ),
     ),
     'module' => 'menu',
-    'hidden' => '0',
-    'external' => '1',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-48',
+    'hidden' => 0,
+    'external' => 1,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -48,
     'parent_path' => 'http://www.cwp-csp.ca/poverty/',
   );
   // Exported menu link: main-menu:resources
@@ -361,11 +361,11 @@ function cwp_site_settings_menu_default_menu_links() {
       ),
     ),
     'module' => 'menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-45',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -45,
   );
   // Exported menu link: menu-top-menu:<front>
   $menu_links['menu-top-menu:<front>'] = array(
@@ -379,11 +379,11 @@ function cwp_site_settings_menu_default_menu_links() {
       ),
     ),
     'module' => 'menu',
-    'hidden' => '0',
-    'external' => '1',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-50',
+    'hidden' => 0,
+    'external' => 1,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -50,
   );
   // Exported menu link: menu-top-menu:http://www.cwp-csp.ca/about-us/
   $menu_links['menu-top-menu:http://www.cwp-csp.ca/about-us/'] = array(
@@ -397,11 +397,11 @@ function cwp_site_settings_menu_default_menu_links() {
       ),
     ),
     'module' => 'menu',
-    'hidden' => '0',
-    'external' => '1',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-49',
+    'hidden' => 0,
+    'external' => 1,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -49,
   );
   // Exported menu link: menu-top-menu:http://www.cwp-csp.ca/contact/
   $menu_links['menu-top-menu:http://www.cwp-csp.ca/contact/'] = array(
@@ -415,11 +415,11 @@ function cwp_site_settings_menu_default_menu_links() {
       ),
     ),
     'module' => 'menu',
-    'hidden' => '0',
-    'external' => '1',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-44',
+    'hidden' => 0,
+    'external' => 1,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -44,
   );
   // Exported menu link: menu-top-menu:http://www.cwp-csp.ca/cwp-advocacy-network/
   $menu_links['menu-top-menu:http://www.cwp-csp.ca/cwp-advocacy-network/'] = array(
@@ -433,11 +433,11 @@ function cwp_site_settings_menu_default_menu_links() {
       ),
     ),
     'module' => 'menu',
-    'hidden' => '0',
-    'external' => '1',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-45',
+    'hidden' => 0,
+    'external' => 1,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -45,
   );
   // Exported menu link: menu-top-menu:http://www.cwp-csp.ca/dignity-for-all/
   $menu_links['menu-top-menu:http://www.cwp-csp.ca/dignity-for-all/'] = array(
@@ -451,11 +451,11 @@ function cwp_site_settings_menu_default_menu_links() {
       ),
     ),
     'module' => 'menu',
-    'hidden' => '0',
-    'external' => '1',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-46',
+    'hidden' => 0,
+    'external' => 1,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -46,
   );
   // Exported menu link: menu-top-menu:http://www.cwp-csp.ca/media/
   $menu_links['menu-top-menu:http://www.cwp-csp.ca/media/'] = array(
@@ -469,11 +469,11 @@ function cwp_site_settings_menu_default_menu_links() {
       ),
     ),
     'module' => 'menu',
-    'hidden' => '0',
-    'external' => '1',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-48',
+    'hidden' => 0,
+    'external' => 1,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -48,
   );
   // Exported menu link: menu-top-menu:http://www.cwp-csp.ca/news/
   $menu_links['menu-top-menu:http://www.cwp-csp.ca/news/'] = array(
@@ -487,11 +487,11 @@ function cwp_site_settings_menu_default_menu_links() {
       ),
     ),
     'module' => 'menu',
-    'hidden' => '0',
-    'external' => '1',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-47',
+    'hidden' => 0,
+    'external' => 1,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -47,
   );
   // Translatables
   // Included for use with string extractors like potx.

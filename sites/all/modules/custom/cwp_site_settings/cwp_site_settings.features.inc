@@ -7,12 +7,10 @@
 /**
  * Implements hook_ctools_plugin_api().
  */
-function cwp_site_settings_ctools_plugin_api() {
-  list($module, $api) = func_get_args();
+function cwp_site_settings_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "context" && $api == "context") {
     return array("version" => "3");
   }
-  list($module, $api) = func_get_args();
   if ($module == "strongarm" && $api == "strongarm") {
     return array("version" => "1");
   }
@@ -21,8 +19,8 @@ function cwp_site_settings_ctools_plugin_api() {
 /**
  * Implements hook_views_api().
  */
-function cwp_site_settings_views_api() {
-  return array("version" => "3.0");
+function cwp_site_settings_views_api($module = NULL, $api = NULL) {
+  return array("api" => "3.0");
 }
 
 /**
@@ -34,6 +32,7 @@ function cwp_site_settings_image_default_styles() {
   // Exported image style: 240x90.
   $styles['240x90'] = array(
     'name' => '240x90',
+    'label' => '240x90',
     'effects' => array(
       1 => array(
         'label' => 'Scale and crop',
@@ -45,10 +44,10 @@ function cwp_site_settings_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => '240',
-          'height' => '90',
+          'width' => 240,
+          'height' => 90,
         ),
-        'weight' => '1',
+        'weight' => 1,
       ),
     ),
   );
