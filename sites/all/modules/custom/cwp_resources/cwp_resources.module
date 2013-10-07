@@ -113,7 +113,7 @@ function cwp_resources_cwp_category_header_block_content() {
   }
 
   // If no category-specific featured resource, get main featured resource.
-  if (!isset($featured_nid)) {
+  if (!isset($featured_nid) || !$featured_nid) {
     $nid = variable_get('main_featured_resource', 0);
     // If not set, get most recent resource from database.
     if (!$nid) {
@@ -139,7 +139,14 @@ function cwp_resources_cwp_category_header_block_content() {
       ),
     ),
     'featured' => array(
-      '#markup' => render(node_view(node_load($featured_nid), 'teaser')),
+      '#type' => 'container',
+      '#attributes' => array('class' => array('featured-resource')),
+      'header' => array(
+        '#markup' => '<div class="featured-header">' . t('Featured resource') . '</div>',
+      ),
+      'resource' => array(
+        '#markup' => render(node_view(node_load($featured_nid), 'teaser')),
+      ),
     ),
   );
 
