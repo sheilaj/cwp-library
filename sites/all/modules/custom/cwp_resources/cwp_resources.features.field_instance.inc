@@ -617,50 +617,6 @@ function cwp_resources_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-resource-field_weight'
-  $field_instances['node-resource-field_weight'] = array(
-    'bundle' => 'resource',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'inline',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 12,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_weight',
-    'label' => 'Weight',
-    'required' => 0,
-    'settings' => array(
-      'max' => '',
-      'min' => '',
-      'prefix' => '',
-      'suffix' => '',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'number',
-      'settings' => array(),
-      'type' => 'number',
-      'weight' => 12,
-    ),
-  );
-
   // Exported field_instance: 'taxonomy_term-category-field_featured_resource'
   $field_instances['taxonomy_term-category-field_featured_resource'] = array(
     'bundle' => 'category',
@@ -759,7 +715,6 @@ function cwp_resources_field_default_field_instances() {
   t('Source');
   t('Summary');
   t('Tags');
-  t('Weight');
 
   return $field_instances;
 }

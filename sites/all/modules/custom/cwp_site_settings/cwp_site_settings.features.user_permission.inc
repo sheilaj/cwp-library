@@ -176,30 +176,12 @@ function cwp_site_settings_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'create page content'.
-  $permissions['create page content'] = array(
-    'name' => 'create page content',
-    'roles' => array(
-      'developer' => 'developer',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: 'delete any featured_content content'.
   $permissions['delete any featured_content content'] = array(
     'name' => 'delete any featured_content content',
     'roles' => array(
       'developer' => 'developer',
       'site admin' => 'site admin',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'delete any page content'.
-  $permissions['delete any page content'] = array(
-    'name' => 'delete any page content',
-    'roles' => array(
-      'developer' => 'developer',
     ),
     'module' => 'node',
   );
@@ -223,28 +205,9 @@ function cwp_site_settings_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'delete own page content'.
-  $permissions['delete own page content'] = array(
-    'name' => 'delete own page content',
-    'roles' => array(
-      'developer' => 'developer',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: 'edit any featured_content content'.
   $permissions['edit any featured_content content'] = array(
     'name' => 'edit any featured_content content',
-    'roles' => array(
-      'developer' => 'developer',
-      'site admin' => 'site admin',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'edit any page content'.
-  $permissions['edit any page content'] = array(
-    'name' => 'edit any page content',
     'roles' => array(
       'developer' => 'developer',
       'site admin' => 'site admin',
@@ -258,15 +221,6 @@ function cwp_site_settings_user_default_permissions() {
     'roles' => array(
       'developer' => 'developer',
       'site admin' => 'site admin',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'edit own page content'.
-  $permissions['edit own page content'] = array(
-    'name' => 'edit own page content',
-    'roles' => array(
-      'developer' => 'developer',
     ),
     'module' => 'node',
   );
