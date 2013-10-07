@@ -182,24 +182,32 @@
 #block-cwp_resources-cwp_category_header
   div.resources-banner
     width: 540px
-    img
-      width: 520px
+    float: left     
     .resources-banner-title
       color: #fff
       position: absolute
-      left: 20px
-      bottom: 50px
-  .node-resource
-    width: 260px
-    height: 209px
-    background: #EFEFEF
-    border-radius: 5px
-    padding: 10px
-    margin: 0
+      left: 15px
+      bottom: -15px
+  .featured-resource
+    float: left
+    clear: none
+    width: 236px
+    height: 204px
+    overflow: hidden
+    border-top: 3px double #0F3F67
+    border-bottom: 3px double #0F3F67
+    padding: 2px
+    margin: 2px 0 2px 20px
+    .featured-header
+      font-size: 16px
+      border-bottom: 1px solid #EFEFEF
+      padding: 8px 0
+    .node-resource
+      padding: 8px 0
     h2
       font-size: 18px
       font-weight: bold
-      
+
 div.block-facetapi, div#block-views--exp-cwp_resources-page
   background: #EFEFEF
   border-radius: 5px
