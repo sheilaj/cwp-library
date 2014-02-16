@@ -72,6 +72,9 @@ function cwp_resources_block_info() {
     'cwp_category_header' => array(
       'info' => t('CWP: Category header image'),
     ),
+    'cwp_add_resource_link' => array(
+      'info' => t('CWP: Add-resource link'),
+    ),
   );
 }
 
@@ -85,6 +88,36 @@ function cwp_resources_block_view($delta = '') {
     case 'cwp_category_header':
       $block['subject'] = '';
       $block['content'] = cwp_resources_cwp_category_header_block_content();
+      break;
+    case 'cwp_add_resource_link':
+      if (user_access('create resource content')) {
+        $block['subject'] = '';
+        $block['content'] = array(
+          0 => array(
+            '#type' => 'link',
+            '#title' => t('Add new resource'),
+            '#href' => 'node/add/resource',
+            '#options' => array(
+              'query' => array(
+                'destination' => $_GET['q'],
+              ),
+              'attributes' => array(
+                'class' => array('admin-resources-link'),
+              ),
+            ),
+          ),
+          1 => array(
+            '#type' => 'link',
+            '#title' => t('Manage featured resources'),
+            '#href' => 'admin/content/resources',
+            '#options' => array(
+              'attributes' => array(
+                'class' => array('admin-resources-link'),
+              ),
+            ),
+          ),
+        );
+      }
       break;
   }
 

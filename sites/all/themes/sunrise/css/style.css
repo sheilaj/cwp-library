@@ -4,8 +4,12 @@ body {
   /* Setting up font size, leading and font family
    * http://www.markboulton.co.uk/journal/comments/five-simple-steps-to-better-typography */
   font: 12px/1.5em Arial, helvetica, sans-serif;
-  background: url("../images/background.sub.jpg") repeat-x scroll center top transparent;
   color: #5d5d5d; }
+
+/* Page */
+#page {
+  background: url("../images/background.sub.jpg") repeat-x scroll center top transparent;
+  max-width: 100% !important; }
 
 /* Regions */
 #main {
@@ -384,6 +388,15 @@ ul.facetapi-facetapi-checkbox-links {
 .view-cwp-resources .views-row {
   border-top: 1px solid #efefef;
   padding: 20px 5px; }
+  .view-cwp-resources .views-row .views-field-edit-node {
+    float: right;
+    width: 30px; }
+    .view-cwp-resources .views-row .views-field-edit-node a:link, .view-cwp-resources .views-row .views-field-edit-node a:visited {
+      text-decoration: none;
+      color: #bbee77; }
+    .view-cwp-resources .views-row .views-field-edit-node a:hover, .view-cwp-resources .views-row .views-field-edit-node a:active {
+      text-decoration: none;
+      color: #222222; }
   .view-cwp-resources .views-row .views-field-field-category {
     height: 20px; }
     .view-cwp-resources .views-row .views-field-field-category .category,
@@ -404,13 +417,26 @@ ul.facetapi-facetapi-checkbox-links {
           .view-cwp-resources .views-row .views-field-field-category .category ul li a,
           .view-cwp-resources .views-row .views-field-field-category .province ul li a,
           .view-cwp-resources .views-row .views-field-field-category .tags ul li a {
-            background-color: #efefef;
             border-radius: 5px;
             padding: 2px 8px;
             margin: 0; }
-    .view-cwp-resources .views-row .views-field-field-category .category ul li a {
+            .view-cwp-resources .views-row .views-field-field-category .category ul li a:link, .view-cwp-resources .views-row .views-field-field-category .category ul li a:visited,
+            .view-cwp-resources .views-row .views-field-field-category .province ul li a:link,
+            .view-cwp-resources .views-row .views-field-field-category .province ul li a:visited,
+            .view-cwp-resources .views-row .views-field-field-category .tags ul li a:link,
+            .view-cwp-resources .views-row .views-field-field-category .tags ul li a:visited {
+              background-color: #efefef; }
+            .view-cwp-resources .views-row .views-field-field-category .category ul li a:hover,
+            .view-cwp-resources .views-row .views-field-field-category .province ul li a:hover,
+            .view-cwp-resources .views-row .views-field-field-category .tags ul li a:hover {
+              background-color: #cccccc;
+              text-decoration: none; }
+    .view-cwp-resources .views-row .views-field-field-category .category ul li a:link, .view-cwp-resources .views-row .views-field-field-category .category ul li a:visited {
       background-color: #ef812a;
       color: white; }
+    .view-cwp-resources .views-row .views-field-field-category .category ul li a:hover {
+      background-color: #dd6600;
+      text-decoration: none; }
   .view-cwp-resources .views-row .views-field-url {
     float: right; }
     .view-cwp-resources .views-row .views-field-url span {
@@ -436,28 +462,28 @@ ul.facetapi-facetapi-checkbox-links {
   margin-bottom: 20px; }
 .node-type-resource h1 {
   color: #0f3f67; }
-.node-type-resource .field {
+.node-type-resource .node-resource .field {
   margin: 5px 0; }
-.node-type-resource .field-name-field-summary .field-items {
+.node-type-resource .node-resource .field-name-field-summary .field-items {
   margin-bottom: 15px; }
-.node-type-resource .field-name-field-category,
-.node-type-resource .field-name-field-province,
-.node-type-resource .field-name-field-resource-tags {
+.node-type-resource .node-resource .field-name-field-category,
+.node-type-resource .node-resource .field-name-field-province,
+.node-type-resource .node-resource .field-name-field-resource-tags {
   float: left;
   margin: 8px 0; }
-  .node-type-resource .field-name-field-category div.field-item,
-  .node-type-resource .field-name-field-province div.field-item,
-  .node-type-resource .field-name-field-resource-tags div.field-item {
+  .node-type-resource .node-resource .field-name-field-category div.field-item,
+  .node-type-resource .node-resource .field-name-field-province div.field-item,
+  .node-type-resource .node-resource .field-name-field-resource-tags div.field-item {
     margin: 0 10px 0 0;
     float: left; }
-    .node-type-resource .field-name-field-category div.field-item a,
-    .node-type-resource .field-name-field-province div.field-item a,
-    .node-type-resource .field-name-field-resource-tags div.field-item a {
+    .node-type-resource .node-resource .field-name-field-category div.field-item a,
+    .node-type-resource .node-resource .field-name-field-province div.field-item a,
+    .node-type-resource .node-resource .field-name-field-resource-tags div.field-item a {
       background-color: #efefef;
       border-radius: 5px;
       padding: 2px 8px;
       margin: 0; }
-.node-type-resource .field-name-field-category div.field-item a {
+.node-type-resource .node-resource .field-name-field-category div.field-item a {
   background-color: #ef812a;
   color: white; }
 
@@ -519,6 +545,31 @@ ul.facetapi-facetapi-checkbox-links {
 /* Footer */
 #closing #social-media a {
   text-decoration: none; }
+
+/* Site admin links */
+.admin-resources-link {
+  background-color: #bbee77;
+  color: #336600;
+  border-radius: 5px;
+  padding: 2px 8px;
+  margin: 0 10px 0 0; }
+  .admin-resources-link:link, .admin-resources-link:visited {
+    color: #336600; }
+  .admin-resources-link:hover {
+    text-decoration: none;
+    background-color: #ccff88; }
+
+/* media widget */
+.media-widget .button {
+  background-color: #e4e4e4;
+  border-radius: 3px;
+  border: solid 1px #aaaaaa;
+  padding: 2px 4px;
+  color: #555555; }
+  .media-widget .button:link, .media-widget .button:visited {
+    text-decoration: none; }
+  .media-widget .button:hover {
+    text-decoration: none; }
 
 * {
   -webkit-box-sizing: border-box;

@@ -233,6 +233,16 @@ ul.facetapi-facetapi-checkbox-links
   .views-row
     border-top: 1px solid #efefef
     padding: 20px 5px
+    .views-field-edit-node
+      float: right
+      width: 30px
+      a
+        &:link, &:visited
+          text-decoration: none
+          color: #BBEE77
+        &:hover, &:active
+          text-decoration: none
+          color: #222222
     .views-field-field-category
       height: 20px
       .category,
@@ -247,16 +257,24 @@ ul.facetapi-facetapi-checkbox-links
             margin: 0 10px 0 0
             float: left
             a
-              background-color: #efefef
               border-radius: 5px
               padding: 2px 8px
               margin: 0
+              &:link, &:visited
+                background-color: #efefef
+              &:hover
+                background-color: #cccccc
+                text-decoration: none
       .category
         ul
           li
             a
-              background-color: #ef812a
-              color: #ffffff
+              &:link, &:visited
+                background-color: #ef812a
+                color: #ffffff
+              &:hover
+                background-color: #dd6600
+                text-decoration: none
     .views-field-url
       float: right
       span
@@ -283,29 +301,30 @@ ul.facetapi-facetapi-checkbox-links
     margin-bottom: 20px
   h1
     color: #0f3f67
-  .field
-    margin: 5px 0
-  .field-name-field-summary
-    .field-items
-      margin-bottom: 15px
-  .field-name-field-category,
-  .field-name-field-province,
-  .field-name-field-resource-tags
-    float: left
-    margin: 8px 0
-    div.field-item
-      margin: 0 10px 0 0
+  .node-resource
+    .field
+      margin: 5px 0
+    .field-name-field-summary
+      .field-items
+        margin-bottom: 15px
+    .field-name-field-category,
+    .field-name-field-province,
+    .field-name-field-resource-tags
       float: left
-      a
-        background-color: #efefef
-        border-radius: 5px
-        padding: 2px 8px
-        margin: 0
-  .field-name-field-category
-    div.field-item
-      a
-        background-color: #ef812a
-        color: #ffffff
+      margin: 8px 0
+      div.field-item
+        margin: 0 10px 0 0
+        float: left
+        a
+          background-color: #efefef
+          border-radius: 5px
+          padding: 2px 8px
+          margin: 0
+    .field-name-field-category
+      div.field-item
+        a
+          background-color: #ef812a
+          color: #ffffff
 
 #block-views-cwp_related_resources-block
   background: #EFEFEF
@@ -366,4 +385,30 @@ ul.facetapi-facetapi-checkbox-links
 #closing
   #social-media
     a
+      text-decoration: none
+
+/* Site admin links
+.admin-resources-link
+  background-color: #BBEE77
+  color: #336600
+  border-radius: 5px
+  padding: 2px 8px
+  margin: 0 10px 0 0
+  &:link, &:visited
+    color: #336600
+  &:hover
+    text-decoration: none
+    background-color: #CCFF88
+
+/* media widget
+.media-widget
+  .button
+    background-color: #E4E4E4
+    border-radius: 3px
+    border: solid 1px  #AAAAAA
+    padding: 2px 4px
+    color: #555555
+    &:link, &:visited
+      text-decoration: none
+    &:hover
       text-decoration: none
