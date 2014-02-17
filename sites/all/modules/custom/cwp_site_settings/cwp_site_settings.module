@@ -85,11 +85,11 @@ function cwp_site_admin_links() {
   $links = array();
 
   if (user_access('edit any resource content')) {
-    $links['content'][] = l(t('Manage resources'), 'admin/content/manage-resources');
+    $links['content'][] = l(t('Manage resources'), 'admin/cwp/resources');
   }
 
   if (user_access('edit any featured_content content')) {
-    $links['content'][] = l(t('Manage bottom blocks'), 'admin/content/manage-resources');
+    $links['content'][] = l(t('Manage bottom blocks'), 'admin/cwp/bottom-blocks');
   }
 
   if (user_access('administer menu')) {
