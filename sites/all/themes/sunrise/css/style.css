@@ -9,7 +9,8 @@ body {
 /* Page */
 #page {
   background: url("../images/background.sub.jpg") repeat-x scroll center top transparent;
-  max-width: 100% !important; }
+  max-width: 100% !important;
+  width: 100% !important; }
 
 /* Regions */
 #main {
