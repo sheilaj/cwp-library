@@ -67,11 +67,17 @@ function cwp_resources_context_default_contexts() {
           'region' => 'header',
           'weight' => '-9',
         ),
+        'cwp_resources-cwp_add_resource_link' => array(
+          'module' => 'cwp_resources',
+          'delta' => 'cwp_add_resource_link',
+          'region' => 'help',
+          'weight' => '-10',
+        ),
         'views--exp-cwp_resources-page' => array(
           'module' => 'views',
           'delta' => '-exp-cwp_resources-page',
           'region' => 'sidebar_first',
-          'weight' => '-18',
+          'weight' => '-17',
         ),
         'facetapi-NkhvugK02SY5m7osdBPia0wt9yOMqGYw' => array(
           'module' => 'facetapi',

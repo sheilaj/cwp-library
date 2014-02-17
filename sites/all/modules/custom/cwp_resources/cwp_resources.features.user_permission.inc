@@ -33,7 +33,6 @@ function cwp_resources_user_default_permissions() {
   $permissions['delete terms in tags'] = array(
     'name' => 'delete terms in tags',
     'roles' => array(
-      'content editor' => 'content editor',
       'developer' => 'developer',
       'site admin' => 'site admin',
     ),

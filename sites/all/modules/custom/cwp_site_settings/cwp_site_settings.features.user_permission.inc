@@ -34,9 +34,7 @@ function cwp_site_settings_user_default_permissions() {
   // Exported permission: 'access backup files'.
   $permissions['access backup files'] = array(
     'name' => 'access backup files',
-    'roles' => array(
-      'developer' => 'developer',
-    ),
+    'roles' => array(),
     'module' => 'backup_migrate',
   );
 
@@ -46,7 +44,6 @@ function cwp_site_settings_user_default_permissions() {
     'roles' => array(
       'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
-      'developer' => 'developer',
     ),
     'module' => 'node',
   );
@@ -122,6 +119,7 @@ function cwp_site_settings_user_default_permissions() {
     'name' => 'administer menu',
     'roles' => array(
       'developer' => 'developer',
+      'site admin' => 'site admin',
     ),
     'module' => 'menu',
   );
@@ -189,9 +187,7 @@ function cwp_site_settings_user_default_permissions() {
   // Exported permission: 'delete backup files'.
   $permissions['delete backup files'] = array(
     'name' => 'delete backup files',
-    'roles' => array(
-      'developer' => 'developer',
-    ),
+    'roles' => array(),
     'module' => 'backup_migrate',
   );
 
@@ -238,9 +234,7 @@ function cwp_site_settings_user_default_permissions() {
   // Exported permission: 'restore from backup'.
   $permissions['restore from backup'] = array(
     'name' => 'restore from backup',
-    'roles' => array(
-      'developer' => 'developer',
-    ),
+    'roles' => array(),
     'module' => 'backup_migrate',
   );
 
@@ -257,9 +251,7 @@ function cwp_site_settings_user_default_permissions() {
   $permissions['use text format filtered_html'] = array(
     'name' => 'use text format filtered_html',
     'roles' => array(
-      'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
-      'developer' => 'developer',
       'site admin' => 'site admin',
     ),
     'module' => 'filter',

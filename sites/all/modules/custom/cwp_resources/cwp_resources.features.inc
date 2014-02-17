@@ -32,6 +32,29 @@ function cwp_resources_views_api($module = NULL, $api = NULL) {
 function cwp_resources_image_default_styles() {
   $styles = array();
 
+  // Exported image style: 150x180.
+  $styles['150x180'] = array(
+    'name' => '150x180',
+    'label' => '150x180',
+    'effects' => array(
+      1 => array(
+        'label' => 'Scale and crop',
+        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
+        'effect callback' => 'image_scale_and_crop_effect',
+        'dimensions callback' => 'image_resize_dimensions',
+        'form callback' => 'image_resize_form',
+        'summary theme' => 'image_resize_summary',
+        'module' => 'image',
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 150,
+          'height' => 180,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
   // Exported image style: banner.
   $styles['banner'] = array(
     'name' => 'banner',
@@ -110,17 +133,17 @@ function cwp_resources_default_search_api_index() {
           "weight" : "-10",
           "settings" : { "default" : "0", "bundles" : { "resource" : "resource" } }
         },
-        "search_api_alter_node_access" : { "status" : 0, "weight" : "0", "settings" : [] },
-        "search_api_alter_node_status" : { "status" : 1, "weight" : "0", "settings" : [] },
+        "search_api_alter_node_access" : { "status" : 0, "weight" : "0", "settings" : [  ] },
+        "search_api_alter_node_status" : { "status" : 1, "weight" : "0", "settings" : [  ] },
         "search_api_alter_language_control" : {
           "status" : 0,
           "weight" : "0",
-          "settings" : { "lang_field" : "", "languages" : [] }
+          "settings" : { "lang_field" : "", "languages" : [  ] }
         },
         "search_api_alter_add_viewed_entity" : { "status" : 0, "weight" : "0", "settings" : { "mode" : "full" } },
-        "search_api_alter_add_url" : { "status" : 0, "weight" : "0", "settings" : [] },
-        "search_api_alter_add_aggregation" : { "status" : 0, "weight" : "0", "settings" : [] },
-        "search_api_alter_add_hierarchy" : { "status" : 0, "weight" : "0", "settings" : { "fields" : [] } }
+        "search_api_alter_add_url" : { "status" : 0, "weight" : "0", "settings" : [  ] },
+        "search_api_alter_add_aggregation" : { "status" : 0, "weight" : "0", "settings" : [  ] },
+        "search_api_alter_add_hierarchy" : { "status" : 0, "weight" : "0", "settings" : { "fields" : [  ] } }
       },
       "processors" : {
         "search_api_case_ignore" : {
@@ -135,7 +158,7 @@ function cwp_resources_default_search_api_index() {
             "fields" : { "field_summary" : true },
             "title" : 0,
             "alt" : 0,
-            "tags" : "h1 = 5\\r\\nh2 = 3\\r\\nh3 = 2\\r\\nstrong = 2\\r\\nb = 2\\r\\nem = 1.5\\r\\nu = 1.5"
+            "tags" : "h1 = 5\\u000D\\u000Ah2 = 3\\u000D\\u000Ah3 = 2\\u000D\\u000Astrong = 2\\u000D\\u000Ab = 2\\u000D\\u000Aem = 1.5\\u000D\\u000Au = 1.5"
           }
         },
         "search_api_tokenizer" : {
@@ -153,14 +176,14 @@ function cwp_resources_default_search_api_index() {
           "settings" : {
             "fields" : { "title" : true, "field_author" : true, "field_summary" : true },
             "file" : "",
-            "stopwords" : "but\\r\\ndid\\r\\nthe this that those\\r\\netc"
+            "stopwords" : "but\\u000D\\u000Adid\\u000D\\u000Athe this that those\\u000D\\u000Aetc"
           }
         }
       }
     },
     "enabled" : "1",
     "read_only" : "0",
-    "rdf_mapping" : []
+    "rdf_mapping" : [  ]
   }');
   return $items;
 }
@@ -248,7 +271,7 @@ function cwp_resources_default_search_api_server() {
       }
     },
     "enabled" : "1",
-    "rdf_mapping" : []
+    "rdf_mapping" : [  ]
   }');
   return $items;
 }

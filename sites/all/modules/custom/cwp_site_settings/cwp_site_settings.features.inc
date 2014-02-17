@@ -61,7 +61,7 @@ function cwp_site_settings_image_default_styles() {
 function cwp_site_settings_node_info() {
   $items = array(
     'featured_content' => array(
-      'name' => t('Featured content'),
+      'name' => t('Bottom block'),
       'base' => 'node_content',
       'description' => t('Title, image, teaser and link to a page or resource. Currently used for the three items at the bottom of most pages.'),
       'has_title' => '1',

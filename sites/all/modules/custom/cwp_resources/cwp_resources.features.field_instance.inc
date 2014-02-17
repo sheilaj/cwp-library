@@ -69,7 +69,7 @@ function cwp_resources_field_default_field_instances() {
         'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
-        'weight' => 8,
+        'weight' => 9,
       ),
       'search_result' => array(
         'label' => 'inline',
@@ -100,7 +100,7 @@ function cwp_resources_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'options_select',
-      'weight' => 7,
+      'weight' => 9,
     ),
   );
 
@@ -108,7 +108,7 @@ function cwp_resources_field_default_field_instances() {
   $field_instances['node-resource-field_file'] = array(
     'bundle' => 'resource',
     'deleted' => 0,
-    'description' => '',
+    'description' => 'If you enter a description, it will be used as the link text (for the link to download the file). Otherwise the file name will be used.',
     'display' => array(
       'default' => array(
         'label' => 'inline',
@@ -153,6 +153,48 @@ function cwp_resources_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-resource-field_file_french'
+  $field_instances['node-resource-field_file_french'] = array(
+    'bundle' => 'resource',
+    'deleted' => 0,
+    'description' => 'If you enter a description, it will be used as the link text (for the link to download the file). Otherwise the file name will be used.',
+    'display' => array(
+      'default' => array(
+        'label' => 'inline',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_default',
+        'weight' => 6,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_file_french',
+    'label' => 'Download (French)',
+    'required' => 0,
+    'settings' => array(
+      'description_field' => 1,
+      'file_directory' => 'resources',
+      'file_extensions' => 'txt pdf doc docx xls ods odt ppt',
+      'max_filesize' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'file',
+      'settings' => array(
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'file_generic',
+      'weight' => 6,
+    ),
+  );
+
   // Exported field_instance: 'node-resource-field_french_link'
   $field_instances['node-resource-field_french_link'] = array(
     'bundle' => 'resource',
@@ -165,7 +207,7 @@ function cwp_resources_field_default_field_instances() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_default',
-        'weight' => 7,
+        'weight' => 8,
       ),
       'search_result' => array(
         'label' => 'above',
@@ -183,7 +225,7 @@ function cwp_resources_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_french_link',
-    'label' => 'French Link',
+    'label' => 'Source (French)',
     'required' => 0,
     'settings' => array(
       'attributes' => array(
@@ -197,9 +239,10 @@ function cwp_resources_field_default_field_instances() {
         'url_cutoff' => 80,
       ),
       'enable_tokens' => 1,
-      'title' => 'value',
+      'rel_remove' => 'default',
+      'title' => 'required',
       'title_maxlength' => 128,
-      'title_value' => 'French Version',
+      'title_value' => '',
       'url' => 0,
       'user_register_form' => FALSE,
       'validate_url' => 1,
@@ -209,7 +252,7 @@ function cwp_resources_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 14,
+      'weight' => 8,
     ),
   );
 
@@ -228,7 +271,7 @@ function cwp_resources_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 13,
+        'weight' => 12,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -251,7 +294,7 @@ function cwp_resources_field_default_field_instances() {
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 11,
+      'weight' => 12,
     ),
   );
 
@@ -288,7 +331,7 @@ function cwp_resources_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 9,
+      'weight' => 10,
     ),
   );
 
@@ -393,12 +436,11 @@ function cwp_resources_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'hidden',
-        'module' => 'image',
+        'module' => 'file_entity',
         'settings' => array(
-          'image_link' => '',
-          'image_style' => '',
+          'file_view_mode' => 'preview',
         ),
-        'type' => 'image',
+        'type' => 'file_rendered',
         'weight' => 0,
       ),
       'search_result' => array(
@@ -471,7 +513,7 @@ function cwp_resources_field_default_field_instances() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_default',
-        'weight' => 6,
+        'weight' => 7,
       ),
       'search_result' => array(
         'label' => 'above',
@@ -516,7 +558,7 @@ function cwp_resources_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 6,
+      'weight' => 7,
     ),
   );
 
@@ -563,7 +605,7 @@ function cwp_resources_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'taxonomy_autocomplete',
-      'weight' => 10,
+      'weight' => 11,
     ),
   );
 
@@ -648,9 +690,13 @@ function cwp_resources_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
+      'module' => 'entityreference',
+      'settings' => array(
+        'match_operator' => 'CONTAINS',
+        'path' => '',
+        'size' => 60,
+      ),
+      'type' => 'entityreference_autocomplete',
       'weight' => 32,
     ),
   );
@@ -705,14 +751,16 @@ function cwp_resources_field_default_field_instances() {
   t('Banner image to show at the top of the resources page when this category is selected.');
   t('Category');
   t('Download');
+  t('Download (French)');
   t('Featured resource');
-  t('French Link');
+  t('If you enter a description, it will be used as the link text (for the link to download the file). Otherwise the file name will be used.');
   t('Image');
   t('Key resource');
   t('Province/Territory');
   t('Publication date');
   t('Publisher');
   t('Source');
+  t('Source (French)');
   t('Summary');
   t('Tags');
 

@@ -101,20 +101,6 @@ function cwp_resources_views_default_views() {
   $handler->display->display_options['fields']['body']['alter']['trim'] = TRUE;
   $handler->display->display_options['fields']['body']['alter']['html'] = TRUE;
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
-  $translatables['cwp_category_image'] = array(
-    t('Master'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Default image'),
-    t('Content entity referenced from field_featured_resource'),
-    t('All'),
-    t('Image'),
-    t('Featured resource'),
-  );
   $export['cwp_category_image'] = $view;
 
   $view = new view();
@@ -200,18 +186,6 @@ function cwp_resources_views_default_views() {
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $translatables['cwp_related_resources'] = array(
-    t('Master'),
-    t('Related resources'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('All'),
-    t('Block'),
-  );
   $export['cwp_related_resources'] = $view;
 
   $view = new view();
@@ -242,6 +216,14 @@ function cwp_resources_views_default_views() {
   $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['hide_empty'] = TRUE;
+  /* Field: Content: Edit link */
+  $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['label'] = '';
+  $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['edit_node']['text'] = '[edit]';
   /* Field: Indexed Node: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'search_api_index_cwp_resources';
@@ -359,32 +341,6 @@ function cwp_resources_views_default_views() {
   $handler = $view->new_display('page', 'Page', 'page');
   $handler->display->display_options['exposed_block'] = TRUE;
   $handler->display->display_options['path'] = 'resources';
-  $translatables['cwp_resources'] = array(
-    t('Master'),
-    t('Resources'),
-    t('more'),
-    t('Go'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Items per page'),
-    t('- All -'),
-    t('Offset'),
-    t('« first'),
-    t('‹ previous'),
-    t('next ›'),
-    t('last »'),
-    t('Publication date'),
-    t('Author'),
-    t('Publisher'),
-    t('Download'),
-    t('Source'),
-    t('<div class="category">[field_category]</div><div class="province">[field_province]</div><div class="tags">[field_resource_tags]</div>'),
-    t('read more >>'),
-    t('Keyword search'),
-    t('Page'),
-  );
   $export['cwp_resources'] = $view;
 
   $view = new view();
@@ -392,7 +348,7 @@ function cwp_resources_views_default_views() {
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'node';
-  $view->human_name = 'resources admin';
+  $view->human_name = 'CWP: Resources admin';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
@@ -408,7 +364,6 @@ function cwp_resources_views_default_views() {
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['exposed_form']['options']['reset_button'] = TRUE;
   $handler->display->display_options['exposed_form']['options']['expose_sort_order'] = FALSE;
-  $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '50';
   $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -420,10 +375,11 @@ function cwp_resources_views_default_views() {
     'field_author' => 'field_author',
     'field_publisher' => 'field_publisher',
     'field_pub_date' => 'field_pub_date',
-    'field_province' => 'field_province',
     'field_resource_tags' => 'field_resource_tags',
+    'edit_node' => 'edit_node',
+    'delete_node' => 'edit_node',
   );
-  $handler->display->display_options['style_options']['default'] = 'title';
+  $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
     'views_bulk_operations' => array(
       'align' => '',
@@ -436,34 +392,29 @@ function cwp_resources_views_default_views() {
       'empty_column' => 0,
     ),
     'title' => array(
-      'sortable' => 1,
+      'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'field_author' => array(
-      'sortable' => 1,
+      'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'field_publisher' => array(
-      'sortable' => 1,
+      'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'field_pub_date' => array(
-      'sortable' => 1,
+      'sortable' => 0,
       'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'field_province' => array(
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
@@ -473,7 +424,24 @@ function cwp_resources_views_default_views() {
       'separator' => '',
       'empty_column' => 0,
     ),
+    'edit_node' => array(
+      'align' => '',
+      'separator' => ' ',
+      'empty_column' => 0,
+    ),
+    'delete_node' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
   );
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['empty'] = TRUE;
+  $handler->display->display_options['header']['area']['content'] = '<a href="/resources">Back to resources page >></a>';
+  $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Field: Bulk operations: Content */
   $handler->display->display_options['fields']['views_bulk_operations']['id'] = 'views_bulk_operations';
   $handler->display->display_options['fields']['views_bulk_operations']['table'] = 'node';
@@ -615,7 +583,6 @@ function cwp_resources_views_default_views() {
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   /* Field: Content: Author */
@@ -637,16 +604,64 @@ function cwp_resources_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Field: Content: Province/Territory */
-  $handler->display->display_options['fields']['field_province']['id'] = 'field_province';
-  $handler->display->display_options['fields']['field_province']['table'] = 'field_data_field_province';
-  $handler->display->display_options['fields']['field_province']['field'] = 'field_province';
-  $handler->display->display_options['fields']['field_province']['delta_offset'] = '0';
   /* Field: Content: Tags */
   $handler->display->display_options['fields']['field_resource_tags']['id'] = 'field_resource_tags';
   $handler->display->display_options['fields']['field_resource_tags']['table'] = 'field_data_field_resource_tags';
   $handler->display->display_options['fields']['field_resource_tags']['field'] = 'field_resource_tags';
   $handler->display->display_options['fields']['field_resource_tags']['delta_offset'] = '0';
+  /* Field: Content: Edit link */
+  $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['label'] = '';
+  $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['edit_node']['text'] = 'edit';
+  /* Field: Content: Delete link */
+  $handler->display->display_options['fields']['delete_node']['id'] = 'delete_node';
+  $handler->display->display_options['fields']['delete_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['delete_node']['field'] = 'delete_node';
+  $handler->display->display_options['fields']['delete_node']['label'] = '';
+  $handler->display->display_options['fields']['delete_node']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['delete_node']['text'] = 'delete';
+  /* Sort criterion: Content: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  $handler->display->display_options['sorts']['created']['exposed'] = TRUE;
+  $handler->display->display_options['sorts']['created']['expose']['label'] = 'Most recently added';
+  /* Sort criterion: Content: Updated date */
+  $handler->display->display_options['sorts']['changed']['id'] = 'changed';
+  $handler->display->display_options['sorts']['changed']['table'] = 'node';
+  $handler->display->display_options['sorts']['changed']['field'] = 'changed';
+  $handler->display->display_options['sorts']['changed']['order'] = 'DESC';
+  $handler->display->display_options['sorts']['changed']['exposed'] = TRUE;
+  $handler->display->display_options['sorts']['changed']['expose']['label'] = 'Most recently updated';
+  /* Sort criterion: Content: Title */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
+  $handler->display->display_options['sorts']['title']['exposed'] = TRUE;
+  $handler->display->display_options['sorts']['title']['expose']['label'] = 'Title A - Z';
+  /* Sort criterion: Content: Author (field_author) */
+  $handler->display->display_options['sorts']['field_author_value']['id'] = 'field_author_value';
+  $handler->display->display_options['sorts']['field_author_value']['table'] = 'field_data_field_author';
+  $handler->display->display_options['sorts']['field_author_value']['field'] = 'field_author_value';
+  $handler->display->display_options['sorts']['field_author_value']['exposed'] = TRUE;
+  $handler->display->display_options['sorts']['field_author_value']['expose']['label'] = 'Author A - Z';
+  /* Sort criterion: Content: Publisher (field_publisher) */
+  $handler->display->display_options['sorts']['field_publisher_value']['id'] = 'field_publisher_value';
+  $handler->display->display_options['sorts']['field_publisher_value']['table'] = 'field_data_field_publisher';
+  $handler->display->display_options['sorts']['field_publisher_value']['field'] = 'field_publisher_value';
+  $handler->display->display_options['sorts']['field_publisher_value']['exposed'] = TRUE;
+  $handler->display->display_options['sorts']['field_publisher_value']['expose']['label'] = 'Publisher A - Z';
+  /* Sort criterion: Content: Publication date (field_pub_date) */
+  $handler->display->display_options['sorts']['field_pub_date_value']['id'] = 'field_pub_date_value';
+  $handler->display->display_options['sorts']['field_pub_date_value']['table'] = 'field_data_field_pub_date';
+  $handler->display->display_options['sorts']['field_pub_date_value']['field'] = 'field_pub_date_value';
+  $handler->display->display_options['sorts']['field_pub_date_value']['order'] = 'DESC';
+  $handler->display->display_options['sorts']['field_pub_date_value']['exposed'] = TRUE;
+  $handler->display->display_options['sorts']['field_pub_date_value']['expose']['label'] = 'Publication date - new to old';
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -757,33 +772,16 @@ function cwp_resources_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
-  $handler->display->display_options['path'] = 'admin/content/resources';
+  $handler->display->display_options['path'] = 'admin/cwp/resources';
   $handler->display->display_options['menu']['type'] = 'tab';
   $handler->display->display_options['menu']['title'] = 'Manage resources';
   $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['name'] = 'management';
   $handler->display->display_options['menu']['context'] = 0;
   $handler->display->display_options['menu']['context_only_inline'] = 0;
   $handler->display->display_options['tab_options']['type'] = 'normal';
   $handler->display->display_options['tab_options']['title'] = 'Resources';
   $handler->display->display_options['tab_options']['weight'] = '0';
-  $translatables['resources_admin'] = array(
-    t('Master'),
-    t('resources admin'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Category'),
-    t('Author'),
-    t('Publisher'),
-    t('Publication date'),
-    t('Province/Territory'),
-    t('Tags'),
-    t('Title'),
-    t('Page'),
-  );
   $export['resources_admin'] = $view;
 
   return $export;
