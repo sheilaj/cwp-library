@@ -177,6 +177,24 @@ function cwp_site_settings_views_default_views() {
   $handler->display->display_options['tab_options']['type'] = 'normal';
   $handler->display->display_options['tab_options']['title'] = 'Resources';
   $handler->display->display_options['tab_options']['weight'] = '0';
+  $translatables['cwp_bottom_blocks_admin'] = array(
+    t('Master'),
+    t('resources admin'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Title'),
+    t('Position'),
+    t('Published'),
+    t('Post date'),
+    t('Updated date'),
+    t('edit'),
+    t('delete'),
+    t('Page'),
+  );
   $export['cwp_bottom_blocks_admin'] = $view;
 
   $view = new view();
@@ -278,6 +296,17 @@ function cwp_site_settings_views_default_views() {
 
   /* Display: Footer */
   $handler = $view->new_display('block', 'Footer', 'footer');
+  $translatables['featured_content'] = array(
+    t('Master'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('[body] [field_link_1]'),
+    t('Footer'),
+  );
   $export['featured_content'] = $view;
 
   return $export;

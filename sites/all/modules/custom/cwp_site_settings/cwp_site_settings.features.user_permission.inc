@@ -21,6 +21,15 @@ function cwp_site_settings_user_default_permissions() {
     'module' => 'admin_menu',
   );
 
+  // Exported permission: 'access administration pages'.
+  $permissions['access administration pages'] = array(
+    'name' => 'access administration pages',
+    'roles' => array(
+      'developer' => 'developer',
+    ),
+    'module' => 'system',
+  );
+
   // Exported permission: 'access backup and migrate'.
   $permissions['access backup and migrate'] = array(
     'name' => 'access backup and migrate',
@@ -34,8 +43,21 @@ function cwp_site_settings_user_default_permissions() {
   // Exported permission: 'access backup files'.
   $permissions['access backup files'] = array(
     'name' => 'access backup files',
-    'roles' => array(),
+    'roles' => array(
+      'developer' => 'developer',
+    ),
     'module' => 'backup_migrate',
+  );
+
+  // Exported permission: 'access broken links report'.
+  $permissions['access broken links report'] = array(
+    'name' => 'access broken links report',
+    'roles' => array(
+      'content editor' => 'content editor',
+      'developer' => 'developer',
+      'site admin' => 'site admin',
+    ),
+    'module' => 'linkchecker',
   );
 
   // Exported permission: 'access content'.
@@ -44,6 +66,7 @@ function cwp_site_settings_user_default_permissions() {
     'roles' => array(
       'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
+      'developer' => 'developer',
     ),
     'module' => 'node',
   );
@@ -57,6 +80,35 @@ function cwp_site_settings_user_default_permissions() {
       'site admin' => 'site admin',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: 'access own broken links report'.
+  $permissions['access own broken links report'] = array(
+    'name' => 'access own broken links report',
+    'roles' => array(
+      'developer' => 'developer',
+    ),
+    'module' => 'linkchecker',
+  );
+
+  // Exported permission: 'access site in maintenance mode'.
+  $permissions['access site in maintenance mode'] = array(
+    'name' => 'access site in maintenance mode',
+    'roles' => array(
+      'developer' => 'developer',
+      'site admin' => 'site admin',
+    ),
+    'module' => 'system',
+  );
+
+  // Exported permission: 'access site reports'.
+  $permissions['access site reports'] = array(
+    'name' => 'access site reports',
+    'roles' => array(
+      'developer' => 'developer',
+      'site admin' => 'site admin',
+    ),
+    'module' => 'system',
   );
 
   // Exported permission: 'access user profiles'.
@@ -78,6 +130,15 @@ function cwp_site_settings_user_default_permissions() {
     'module' => 'backup_migrate',
   );
 
+  // Exported permission: 'administer blocks'.
+  $permissions['administer blocks'] = array(
+    'name' => 'administer blocks',
+    'roles' => array(
+      'developer' => 'developer',
+    ),
+    'module' => 'block',
+  );
+
   // Exported permission: 'administer content types'.
   $permissions['administer content types'] = array(
     'name' => 'administer content types',
@@ -96,6 +157,25 @@ function cwp_site_settings_user_default_permissions() {
     'module' => 'context_ui',
   );
 
+  // Exported permission: 'administer file types'.
+  $permissions['administer file types'] = array(
+    'name' => 'administer file types',
+    'roles' => array(
+      'developer' => 'developer',
+    ),
+    'module' => 'file_entity',
+  );
+
+  // Exported permission: 'administer files'.
+  $permissions['administer files'] = array(
+    'name' => 'administer files',
+    'roles' => array(
+      'developer' => 'developer',
+      'site admin' => 'site admin',
+    ),
+    'module' => 'file_entity',
+  );
+
   // Exported permission: 'administer filters'.
   $permissions['administer filters'] = array(
     'name' => 'administer filters',
@@ -112,6 +192,16 @@ function cwp_site_settings_user_default_permissions() {
       'developer' => 'developer',
     ),
     'module' => 'image',
+  );
+
+  // Exported permission: 'administer linkchecker'.
+  $permissions['administer linkchecker'] = array(
+    'name' => 'administer linkchecker',
+    'roles' => array(
+      'developer' => 'developer',
+      'site admin' => 'site admin',
+    ),
+    'module' => 'linkchecker',
   );
 
   // Exported permission: 'administer menu'.
@@ -134,6 +224,33 @@ function cwp_site_settings_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'administer permissions'.
+  $permissions['administer permissions'] = array(
+    'name' => 'administer permissions',
+    'roles' => array(
+      'developer' => 'developer',
+    ),
+    'module' => 'user',
+  );
+
+  // Exported permission: 'administer site configuration'.
+  $permissions['administer site configuration'] = array(
+    'name' => 'administer site configuration',
+    'roles' => array(
+      'developer' => 'developer',
+    ),
+    'module' => 'system',
+  );
+
+  // Exported permission: 'administer taxonomy'.
+  $permissions['administer taxonomy'] = array(
+    'name' => 'administer taxonomy',
+    'roles' => array(
+      'developer' => 'developer',
+    ),
+    'module' => 'taxonomy',
+  );
+
   // Exported permission: 'administer users'.
   $permissions['administer users'] = array(
     'name' => 'administer users',
@@ -142,6 +259,16 @@ function cwp_site_settings_user_default_permissions() {
       'site admin' => 'site admin',
     ),
     'module' => 'user',
+  );
+
+  // Exported permission: 'bypass node access'.
+  $permissions['bypass node access'] = array(
+    'name' => 'bypass node access',
+    'roles' => array(
+      'developer' => 'developer',
+      'site admin' => 'site admin',
+    ),
+    'module' => 'node',
   );
 
   // Exported permission: 'cancel account'.
@@ -174,6 +301,26 @@ function cwp_site_settings_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'create files'.
+  $permissions['create files'] = array(
+    'name' => 'create files',
+    'roles' => array(
+      'content editor' => 'content editor',
+      'developer' => 'developer',
+      'site admin' => 'site admin',
+    ),
+    'module' => 'file_entity',
+  );
+
+  // Exported permission: 'create page content'.
+  $permissions['create page content'] = array(
+    'name' => 'create page content',
+    'roles' => array(
+      'developer' => 'developer',
+    ),
+    'module' => 'node',
+  );
+
   // Exported permission: 'delete any featured_content content'.
   $permissions['delete any featured_content content'] = array(
     'name' => 'delete any featured_content content',
@@ -184,10 +331,21 @@ function cwp_site_settings_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'delete any page content'.
+  $permissions['delete any page content'] = array(
+    'name' => 'delete any page content',
+    'roles' => array(
+      'developer' => 'developer',
+    ),
+    'module' => 'node',
+  );
+
   // Exported permission: 'delete backup files'.
   $permissions['delete backup files'] = array(
     'name' => 'delete backup files',
-    'roles' => array(),
+    'roles' => array(
+      'developer' => 'developer',
+    ),
     'module' => 'backup_migrate',
   );
 
@@ -197,6 +355,15 @@ function cwp_site_settings_user_default_permissions() {
     'roles' => array(
       'developer' => 'developer',
       'site admin' => 'site admin',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'delete own page content'.
+  $permissions['delete own page content'] = array(
+    'name' => 'delete own page content',
+    'roles' => array(
+      'developer' => 'developer',
     ),
     'module' => 'node',
   );
@@ -211,12 +378,41 @@ function cwp_site_settings_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'edit any page content'.
+  $permissions['edit any page content'] = array(
+    'name' => 'edit any page content',
+    'roles' => array(
+      'developer' => 'developer',
+      'site admin' => 'site admin',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'edit link settings'.
+  $permissions['edit link settings'] = array(
+    'name' => 'edit link settings',
+    'roles' => array(
+      'developer' => 'developer',
+      'site admin' => 'site admin',
+    ),
+    'module' => 'linkchecker',
+  );
+
   // Exported permission: 'edit own featured_content content'.
   $permissions['edit own featured_content content'] = array(
     'name' => 'edit own featured_content content',
     'roles' => array(
       'developer' => 'developer',
       'site admin' => 'site admin',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'edit own page content'.
+  $permissions['edit own page content'] = array(
+    'name' => 'edit own page content',
+    'roles' => array(
+      'developer' => 'developer',
     ),
     'module' => 'node',
   );
@@ -234,7 +430,9 @@ function cwp_site_settings_user_default_permissions() {
   // Exported permission: 'restore from backup'.
   $permissions['restore from backup'] = array(
     'name' => 'restore from backup',
-    'roles' => array(),
+    'roles' => array(
+      'developer' => 'developer',
+    ),
     'module' => 'backup_migrate',
   );
 
@@ -251,7 +449,9 @@ function cwp_site_settings_user_default_permissions() {
   $permissions['use text format filtered_html'] = array(
     'name' => 'use text format filtered_html',
     'roles' => array(
+      'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
+      'developer' => 'developer',
       'site admin' => 'site admin',
     ),
     'module' => 'filter',
@@ -277,6 +477,17 @@ function cwp_site_settings_user_default_permissions() {
       'site admin' => 'site admin',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: 'view the administration theme'.
+  $permissions['view the administration theme'] = array(
+    'name' => 'view the administration theme',
+    'roles' => array(
+      'content editor' => 'content editor',
+      'developer' => 'developer',
+      'site admin' => 'site admin',
+    ),
+    'module' => 'system',
   );
 
   return $permissions;

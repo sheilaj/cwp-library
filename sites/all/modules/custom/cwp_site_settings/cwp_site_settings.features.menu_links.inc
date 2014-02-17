@@ -405,24 +405,6 @@ function cwp_site_settings_menu_default_menu_links() {
     'customized' => 1,
     'parent_identifier' => 'main-menu_poverty:http://www.cwp-csp.ca/poverty/',
   );
-  // Exported menu link: management_:admin/config/content/formats/%
-  $menu_links['management_:admin/config/content/formats/%'] = array(
-    'menu_name' => 'management',
-    'link_path' => 'admin/config/content/formats/%',
-    'router_path' => 'admin/config/content/formats/%',
-    'link_title' => '',
-    'options' => array(
-      'identifier' => 'management_:admin/config/content/formats/%',
-    ),
-    'module' => 'system',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 1,
-    'expanded' => 0,
-    'weight' => 0,
-    'customized' => 0,
-    'parent_identifier' => 'management_text-formats:admin/config/content/formats',
-  );
   // Exported menu link: menu-top-menu_about:http://www.cwp-csp.ca/about-us/
   $menu_links['menu-top-menu_about:http://www.cwp-csp.ca/about-us/'] = array(
     'menu_name' => 'menu-top-menu',
