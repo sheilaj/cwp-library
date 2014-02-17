@@ -108,8 +108,8 @@ function cwp_resources_block_view($delta = '') {
           ),
           1 => array(
             '#type' => 'link',
-            '#title' => t('Manage featured resources'),
-            '#href' => 'admin/content/resources',
+            '#title' => t('Manage resources'),
+            '#href' => 'admin/cwp/resources',
             '#options' => array(
               'attributes' => array(
                 'class' => array('admin-resources-link'),

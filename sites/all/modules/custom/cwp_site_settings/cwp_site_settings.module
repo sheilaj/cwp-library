@@ -86,16 +86,21 @@ function cwp_site_admin_links() {
   $links = array();
 
   if (user_access('edit any resource content')) {
-    $links['content'][] = l(t('Manage resources'), 'admin/cwp/resources');
+    $links['content'][] = l(t('Resources'), 'admin/cwp/resources');
   }
 
   if (user_access('edit any featured_content content')) {
-    $links['content'][] = l(t('Manage bottom blocks'), 'admin/cwp/bottom-blocks');
+    $links['content'][] = l(t('Bottom blocks'), 'admin/cwp/bottom-blocks');
   }
 
   if (user_access('administer menu')) {
-    $links['menu'][] = l(t('Manage main menu'), 'admin/structure/menu/manage/main-menu');
-    $links['menu'][] = l(t('Manage top menu'), 'admin/structure/menu/manage/menu-top-menu');
+    $links['menu'][] = l(t('Main menu'), 'admin/structure/menu/manage/main-menu');
+    $links['menu'][] = l(t('Top menu'), 'admin/structure/menu/manage/menu-top-menu');
+  }
+
+  if (user_access('administer taxonomy')) {
+    $links['taxonomy'][] = l(t('Category terms'), 'admin/structure/taxonomy/category');
+    $links['taxonomy'][] = l(t('Tags'), 'admin/structure/taxonomy/tags');
   }
 
   if (user_access('administer users')) {
