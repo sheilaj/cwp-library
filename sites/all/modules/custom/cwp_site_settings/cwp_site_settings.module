@@ -12,12 +12,13 @@ include_once 'cwp_site_settings.features.inc';
 function cwp_site_settings_menu() {
 
   $items['admin/cwp'] = array(
-    'title' => 'CWP site administration',
+    'title' => 'CWP admin',
     'page callback' => 'cwp_site_admin_links',
     'access arguments' => array('access administration menu'),
+    'weight' => '20',
   );
   $items['admin/cwp/links'] = array(
-    'title' => 'CWP site administration',
+    'title' => 'CWP admin',
     'type' => MENU_DEFAULT_LOCAL_TASK,
     'weight' => '-10',
   );
