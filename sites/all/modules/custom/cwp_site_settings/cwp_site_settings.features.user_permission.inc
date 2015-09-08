@@ -229,6 +229,7 @@ function cwp_site_settings_user_default_permissions() {
     'name' => 'administer permissions',
     'roles' => array(
       'developer' => 'developer',
+      'site admin' => 'site admin',
     ),
     'module' => 'user',
   );
