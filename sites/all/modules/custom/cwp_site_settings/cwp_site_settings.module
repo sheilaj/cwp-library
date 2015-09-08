@@ -41,7 +41,8 @@ function cwp_site_settings_block_info_alter(&$blocks, $theme, $code_blocks) {
  */
 function cwp_site_settings_preprocess_page(&$vars) {
   // Add search form and redirect to cwp-csp.ca (Wordpress site search)
-  $vars['cwp_search_form']  = drupal_render(drupal_get_form('cwp_search_cwp_site'));
+  $form = drupal_get_form('cwp_search_cwp_site');
+  $vars['cwp_search_form']  = drupal_render($form);
 }
 
 /**
