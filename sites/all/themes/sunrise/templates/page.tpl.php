@@ -6,7 +6,8 @@
   
     <div id="navtop">
       <div id="menu-top">
-        <?php print drupal_render(menu_tree('menu-top-menu')); ?>
+        <?php $menu_tree = menu_tree('menu-top-menu'); ?>
+        <?php print drupal_render($menu_tree); ?>
       </div>
       <div id="donatenow">
         <a title="Donate Now" href="http://www.canadahelps.org/CharityProfilePage.aspx?charityID=s41272" alt="Donate"></a>

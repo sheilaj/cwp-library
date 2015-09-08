@@ -160,6 +160,8 @@ function cwp_resources_cwp_category_header_block_content() {
     'path' => drupal_get_path('theme', 'sunrise') . '/images/resources_cropped.jpg',
   );
 
+  $node_view = node_view(node_load($featured_nid), 'teaser');
+
   $content = array(
     'banner' => array(
       '#type' => 'container',
@@ -178,7 +180,7 @@ function cwp_resources_cwp_category_header_block_content() {
         '#markup' => '<div class="featured-header">' . t('Featured resource') . '</div>',
       ),
       'resource' => array(
-        '#markup' => render(node_view(node_load($featured_nid), 'teaser')),
+        '#markup' => render($node_view),
       ),
     ),
   );
